@@ -1,0 +1,49 @@
+<div id="edit-profile-modal" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-border-rounded">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title uk-text-muted">Editar Perfil</h2>
+        </div>
+        <div class="uk-modal-body">
+            <form>
+                <div class="uk-width-auto uk-flex uk-flex-center">
+                    <div class="uk-inline uk-visible-toggle uk-transition-toggle" tabindex="-1">
+                        <img class="uk-border-circle" width="128" height="128" src="https://placehold.co/128"
+                            alt="Avatar">
+                        <div
+                            class="uk-overlay uk-overlay-default uk-position-cover uk-hidden-hover uk-transition-fade uk-flex uk-flex-center uk-flex-middle">
+                            <div uk-form-custom>
+                                <input type="file" accept="image/*">
+                                <button class="uk-button uk-button-link">
+                                    <span class="" uk-icon="icon: pencil; ratio: 1.5"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <div class="uk-width-1-1 uk-inline">
+                        <span class="uk-form-icon" uk-icon="icon: happy"></span>
+                        <input class="uk-input uk-form-large uk-text-muted" type="text" placeholder="Nome">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <div class="uk-width-1-1 uk-inline">
+                        <span class="uk-form-icon" uk-icon="icon: user"></span>
+                        <input class="uk-input uk-form-large uk-text-muted" type="text" placeholder="Usuário">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <div class="uk-width-1-1 uk-inline">
+                        <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                        <input class="uk-input uk-form-large uk-text-muted" type="email" placeholder="Email">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="uk-modal-footer uk-text-right">
+            <a class="uk-button uk-button-link uk-modal-close uk-margin-small-right" type="button">Cancelar</a>
+            <button class="uk-button uk-button-primary" type="button">Salvar</button>
+        </div>
+    </div>
+</div>

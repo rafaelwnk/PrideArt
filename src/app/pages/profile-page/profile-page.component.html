@@ -1,7 +1,11 @@
 <div class="uk-flex uk-flex-center uk-margin-top">
     <div class="uk-flex uk-flex-column uk-width-1-1@m">
-        <div class="background-trans-one">
+        <div class="background-trans-one uk-position-relative">
             <div class="uk-card-header">
+                <a href="#edit-profile-modal" uk-toggle
+                    class="uk-position-small uk-position-top-right uk-button uk-button-default uk-border-pill follow"
+                    type="button"><span class="uk-icon" uk-icon="icon: pencil"></span>
+                </a>
                 <div class="uk-grid-small uk-flex-middle" uk-grid>
                     <div class="uk-width-auto">
                         <img class="uk-border-circle" width="128" height="128" src="https://placehold.co/128"
@@ -32,3 +36,5 @@
         </div>
     </div>
 </div>
+
+<app-edit-profile-modal></app-edit-profile-modal>
