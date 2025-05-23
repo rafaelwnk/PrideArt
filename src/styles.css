@@ -23,3 +23,7 @@
 .background-gay-two {
     background: #7679e6;
 }
+
+.card-hover:hover {
+    box-shadow: 0 14px 25px rgba(255, 255, 255, 0.1) !important;
+}
