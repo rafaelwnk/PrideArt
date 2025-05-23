@@ -1,0 +1,31 @@
+<a class="uk-button uk-button-default" href="#modal-center" uk-toggle>Open</a>
+
+<div id="modal-center" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title uk-text-muted">Postar</h2>
+        </div>
+        <div class="uk-modal-body">
+            <form>
+                <input class="uk-input uk-form-large uk-text-muted" type="text" placeholder="Título">
+                <div class="js-upload uk-placeholder uk-text-center">
+                    <span uk-icon="icon: cloud-upload"></span>
+                    <span class="uk-text-middle">Arraste aqui uma foto ou </span>
+                    <div uk-form-custom>
+                        <input type="file" accept="image/*">
+                        <span class="uk-link">clique aqui</span>
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <textarea class="uk-textarea uk-text-muted" rows="5" placeholder="Descrição"
+                        aria-label="Textarea"></textarea>
+                </div>
+            </form>
+        </div>
+        <div class="uk-modal-footer uk-text-right">
+            <a class="uk-button uk-button-link uk-modal-close uk-margin-small-right" type="button">Cancelar</a>
+            <button class="uk-button uk-button-primary" type="button">Postar</button>
+        </div>
+    </div>
+</div>
