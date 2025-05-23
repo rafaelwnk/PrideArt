@@ -1,26 +1,9 @@
-<div class="uk-background-primary uk-light">
+<div class="uk-light">
     <div class="uk-container-expand uk-margin-medium-left uk-margin-medium-right">
         <nav class="uk-navbar-container uk-navbar-transparent uk-margin" uk-navbar>
             <div class="uk-navbar-left">
                 <ul class="uk-navbar-nav">
-                    <li>
-                        <a>
-                            <span class="uk-icon uk-margin-xsmall-right" uk-icon="icon: home"></span>
-                            Página inicial
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <span class="uk-icon uk-margin-xsmall-right" uk-icon="icon: search"></span>
-                            Explorar
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <span class="uk-icon uk-margin-xsmall-right" uk-icon="icon: users"></span>
-                            Artistas
-                        </a>
-                    </li>
+                    <button type="button" uk-toggle="target: #offcanvas-nav-primary" uk-icon="icon: menu"></button>
                 </ul>
             </div>
             <div class="uk-navbar-right">
@@ -43,5 +26,31 @@
                 </ul>
             </div>
         </nav>
+    </div>
+</div>
+<div id="offcanvas-nav-primary" uk-offcanvas="overlay: true">
+    <div class="uk-offcanvas-bar uk-flex uk-flex-column uk-background-default">
+        <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
+            <li class="uk-margin-medium">
+                <a>
+                    <span class="uk-icon uk-margin-xsmall-right" uk-icon="icon: home"></span>
+                    Página inicial
+                </a>
+            </li>
+            <li class="uk-nav-divider"></li>
+            <li class="uk-margin-medium">
+                <a>
+                    <span class="uk-icon uk-margin-xsmall-right" uk-icon="icon: search"></span>
+                    Explorar
+                </a>
+            </li>
+            <li class="uk-nav-divider"></li>
+            <li class="uk-margin-medium">
+                <a>
+                    <span class="uk-icon uk-margin-xsmall-right" uk-icon="icon: users"></span>
+                    Artistas
+                </a>
+            </li>
+        </ul>
     </div>
 </div>
