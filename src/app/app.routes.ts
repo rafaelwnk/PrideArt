@@ -5,6 +5,7 @@ import { ResetPasswordPageComponent } from './pages/account/reset-password-page/
 import { FramePageComponent } from './pages/frame-page/frame-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ArtistsPageComponent } from './pages/artists-page/artists-page.component';
+import { ExplorePageComponent } from './pages/explore-page/explore-page.component';
 
 export const routes: Routes = [
     {
@@ -12,7 +13,8 @@ export const routes: Routes = [
         component: FramePageComponent,
         children: [
             { path: '', component: HomePageComponent},
-            { path: 'artists', component: ArtistsPageComponent},
+            { path: 'explore', component: ExplorePageComponent},
+            { path: 'artists', component: ArtistsPageComponent}
         ]
         
     },

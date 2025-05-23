@@ -1,0 +1,25 @@
+.follow {
+    background: #222;
+    color: #fff;
+}
+
+.follow:hover {
+    background: #f5f5f5;
+    color: #222;
+}
+
+.background-trans-one {
+    background: #5bcefa;
+}
+
+.background-trans-two {
+    background: #f5a9b8;
+}
+
+.background-gay-one {
+    background: #39d4c8;
+}
+
+.background-gay-two {
+    background: #7679e6;
+}
