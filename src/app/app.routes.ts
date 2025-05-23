@@ -6,6 +6,7 @@ import { FramePageComponent } from './pages/frame-page/frame-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ArtistsPageComponent } from './pages/artists-page/artists-page.component';
 import { ExplorePageComponent } from './pages/explore-page/explore-page.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 export const routes: Routes = [
     {
@@ -14,7 +15,8 @@ export const routes: Routes = [
         children: [
             { path: '', component: HomePageComponent},
             { path: 'explore', component: ExplorePageComponent},
-            { path: 'artists', component: ArtistsPageComponent}
+            { path: 'artists', component: ArtistsPageComponent},
+            { path: 'profile', component: ProfilePageComponent}
         ]
         
     },
