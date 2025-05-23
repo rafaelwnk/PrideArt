@@ -4,13 +4,15 @@ import { SignUpPageComponent } from './pages/account/sign-up-page/sign-up-page.c
 import { ResetPasswordPageComponent } from './pages/account/reset-password-page/reset-password-page.component';
 import { FramePageComponent } from './pages/frame-page/frame-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { ArtistsPageComponent } from './pages/artists-page/artists-page.component';
 
 export const routes: Routes = [
     {
         path: '',
         component: FramePageComponent,
         children: [
-            { path: '', component: HomePageComponent}
+            { path: '', component: HomePageComponent},
+            { path: 'artists', component: ArtistsPageComponent},
         ]
         
     },
