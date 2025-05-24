@@ -8,20 +8,52 @@
     color: #222;
 }
 
-.background-trans-one {
-    background: #5bcefa;
+.lesbian {
+    background: linear-gradient(to right, #d52d00, #d362a4);
 }
 
-.background-trans-two {
-    background: #f5a9b8;
+.gay {
+    background: linear-gradient(to right, #39d4c8, #7679e6);
 }
 
-.background-gay-one {
-    background: #39d4c8;
+.bisexual {
+   background: linear-gradient(to right, #ff0080, #7748d6); 
 }
 
-.background-gay-two {
-    background: #7679e6;
+.transgender {
+    background: linear-gradient(to right, #5bcefa, #f5a9b8);
+}
+
+.queer {
+    background: linear-gradient(to right, #c175da, #74a464);
+}
+
+.intersex {
+    background: linear-gradient(to right, #f9c266, #910dce);
+}
+
+.asexual {
+    background: linear-gradient(to right, #a3a3a3, #820080);
+}
+
+.pansexual {
+    background: linear-gradient(to right, #ed2e8c, #4cace2);
+}
+
+.demisexual {
+    background: linear-gradient(to right, #000000, #6e0070);
+}
+
+.non-binary {
+    background: linear-gradient(to right, #fdf433, #9a5acf, #000000);
+}
+
+.travesti {
+    background: linear-gradient(to right, #d887dc, #ffc6de);
+}
+
+.drag {
+    background: linear-gradient(to right, #b667fa, #e9a1e0, #4867fc);
 }
 
 .card-hover:hover {
