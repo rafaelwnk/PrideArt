@@ -5,32 +5,37 @@
     </p>
 
     <div>
-      <form>
+      <form [formGroup]="form">
         <div class="uk-card uk-card-body uk-border-rounded">
           <h3 class="uk-card-title uk-text-muted">Cadastre-se</h3>
           <div class="uk-margin">
             <div class="uk-width-1-1 uk-inline">
               <span class="uk-form-icon" uk-icon="icon: happy"></span>
-              <input class="uk-input uk-form-large uk-text-muted" type="text" placeholder="Nome">
+              <input class="uk-input uk-form-large uk-text-muted" formControlName="name" type="text" placeholder="Nome"
+                [ngClass]="{'uk-form-danger': (!form.controls['name'].valid && !form.controls['name'].pristine) }">
             </div>
           </div>
           <div class="uk-margin">
             <div class="uk-width-1-1 uk-inline">
               <span class="uk-form-icon" uk-icon="icon: user"></span>
-              <input class="uk-input uk-form-large uk-text-muted" type="text" placeholder="Usuário">
+              <input class="uk-input uk-form-large uk-text-muted" formControlName="username" type="text"
+                placeholder="Usuário"
+                [ngClass]="{'uk-form-danger': (!form.controls['username'].valid && !form.controls['username'].pristine) }">
             </div>
           </div>
           <div class="uk-margin">
             <div class="uk-width-1-1 uk-inline">
               <span class="uk-form-icon" uk-icon="icon: mail"></span>
-              <input class="uk-input uk-form-large uk-text-muted" type="email" placeholder="Email">
+              <input class="uk-input uk-form-large uk-text-muted" formControlName="email" type="email"
+                placeholder="Email"
+                [ngClass]="{'uk-form-danger': (!form.controls['email'].valid && !form.controls['email'].pristine) }">
             </div>
           </div>
           <div class="uk-margin">
             <div class="uk-width-1-1 uk-inline" uk-form-custom="target: > * > span:first-child">
               <span class="uk-form-icon uk-margin-small-right" uk-icon="icon: heart"></span>
-              <select class="" aria-label="Custom controls">
-                <option disabled selected>Como você se identifica?</option>
+              <select formControlName="identity" aria-label="Custom controls">
+                <option value="" disabled selected>Como você se identifica?</option>
                 <option value="1">Lésbica</option>
                 <option value="2">Gay</option>
                 <option value="3">Bissexual</option>
@@ -41,10 +46,11 @@
                 <option value="8">Pansexual</option>
                 <option value="9">Demissexual</option>
                 <option value="10">Não-binário</option>
-                <option value="11">Travesti</option> 
-                <option value="12">Drag</option>  
+                <option value="11">Travesti</option>
+                <option value="12">Drag</option>
               </select>
-              <button class="uk-input uk-form-large uk-text-muted uk-flex uk-flex-between uk-flex-middle" type="button" tabindex="-1">
+              <button class="uk-input uk-form-large uk-text-muted uk-flex uk-flex-between uk-flex-middle" type="button"
+                tabindex="-1">
                 <span></span>
                 <span uk-icon="icon: chevron-down"></span>
               </button>
@@ -53,17 +59,22 @@
           <div class="uk-margin">
             <div class="uk-width-1-1 uk-inline">
               <span class="uk-form-icon" uk-icon="icon: lock"></span>
-              <input class="uk-input uk-form-large uk-text-muted" type="password" placeholder="Senha">
+              <input class="uk-input uk-form-large uk-text-muted" formControlName="password" type="password"
+                placeholder="Senha"
+                [ngClass]="{'uk-form-danger': (!form.controls['password'].valid && !form.controls['password'].pristine) }">
             </div>
           </div>
           <div class="uk-margin">
             <div class="uk-width-1-1 uk-inline">
               <span class="uk-form-icon" uk-icon="icon: lock"></span>
-              <input class="uk-input uk-form-large uk-text-muted" type="password" placeholder="Confirme a senha">
+              <input class="uk-input uk-form-large uk-text-muted" formControlName="confirmPassword" type="password"
+                placeholder="Confirme a senha"
+                [ngClass]="{'uk-form-danger': (!form.controls['confirmPassword'].valid && !form.controls['confirmPassword'].pristine) }">
             </div>
           </div>
           <div class="uk-margin uk-text-right">
-            <button class="uk-button uk-button-primary uk-border-pill uk-text-muted">Cadastrar</button>
+            <button class="uk-button uk-button-primary uk-border-pill uk-text-muted"
+              [disabled]="form.invalid">Cadastrar</button>
           </div>
         </div>
       </form>
