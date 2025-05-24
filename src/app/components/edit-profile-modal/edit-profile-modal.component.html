@@ -5,7 +5,7 @@
             <h2 class="uk-modal-title uk-text-muted">Editar Perfil</h2>
         </div>
         <div class="uk-modal-body">
-            <form>
+            <form [formGroup]="form">
                 <div class="uk-width-auto uk-flex uk-flex-center">
                     <div class="uk-inline uk-visible-toggle uk-transition-toggle" tabindex="-1">
                         <img class="uk-border-circle" width="128" height="128" src="https://placehold.co/128"
@@ -24,25 +24,28 @@
                 <div class="uk-margin">
                     <div class="uk-width-1-1 uk-inline">
                         <span class="uk-form-icon" uk-icon="icon: happy"></span>
-                        <input class="uk-input uk-form-large uk-text-muted" type="text" placeholder="Nome">
+                        <input class="uk-input uk-form-large uk-text-muted" formControlName="name" type="text" placeholder="Nome"
+                        [ngClass]="{'uk-form-danger': (!form.controls['name'].valid && !form.controls['name'].pristine) }">
                     </div>
                 </div>
                 <div class="uk-margin">
                     <div class="uk-width-1-1 uk-inline">
                         <span class="uk-form-icon" uk-icon="icon: user"></span>
-                        <input class="uk-input uk-form-large uk-text-muted" type="text" placeholder="Usuário">
+                        <input class="uk-input uk-form-large uk-text-muted" formControlName="username" type="text" placeholder="Usuário"
+                        [ngClass]="{'uk-form-danger': (!form.controls['username'].valid && !form.controls['username'].pristine) }">
                     </div>
                 </div>
                 <div class="uk-margin">
                     <div class="uk-width-1-1 uk-inline">
                         <span class="uk-form-icon" uk-icon="icon: mail"></span>
-                        <input class="uk-input uk-form-large uk-text-muted" type="email" placeholder="Email">
+                        <input class="uk-input uk-form-large uk-text-muted" formControlName="email" type="email" placeholder="Email"
+                        [ngClass]="{'uk-form-danger': (!form.controls['email'].valid && !form.controls['email'].pristine) }">
                     </div>
                 </div>
                 <div class="uk-margin">
                     <div class="uk-width-1-1 uk-inline" uk-form-custom="target: > * > span:first-child">
                         <span class="uk-form-icon uk-margin-small-right" uk-icon="icon: heart"></span>
-                        <select class="" aria-label="Custom controls">
+                        <select formControlName="identity" aria-label="Custom controls">
                             <option value="" disabled selected>Como você se identifica?</option>
                             <option value="1">Lésbica</option>
                             <option value="2">Gay</option>
@@ -68,7 +71,7 @@
         </div>
         <div class="uk-modal-footer uk-text-right">
             <a class="uk-button uk-button-link uk-modal-close uk-margin-small-right" type="button">Cancelar</a>
-            <button class="uk-button uk-button-primary" type="button">Salvar</button>
+            <button class="uk-button uk-button-primary uk-border-rounded" type="button" [disabled]="form.invalid" (click)="submit()">Salvar</button>
         </div>
     </div>
 </div>
