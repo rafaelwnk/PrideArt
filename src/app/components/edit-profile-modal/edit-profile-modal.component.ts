@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,33 +9,29 @@ import { Router } from '@angular/router';
   templateUrl: './edit-profile-modal.component.html'
 })
 export class EditProfileModalComponent {
-  public form: FormGroup;
+  public form: FormGroup = new FormGroup({
+    name: new FormControl<string>('', [
+      Validators.minLength(3),
+      Validators.maxLength(80),
+      Validators.required
+    ]),
+    username: new FormControl<string>('', [
+      Validators.minLength(3),
+      Validators.maxLength(25),
+      Validators.required
+    ]),
+    email: new FormControl<string>('', [
+      Validators.email,
+      Validators.minLength(8),
+      Validators.maxLength(120),
+      Validators.required
+    ]),
+    identity: new FormControl<string>('', [
+      Validators.required
+    ])
+  });
 
-  constructor(
-    private router: Router,
-    private fb: FormBuilder
-  ) {
-    this.form = this.fb.group({
-      name: ['', Validators.compose([
-        Validators.minLength(3),
-        Validators.maxLength(80),
-        Validators.required
-      ])],
-      username: ['', Validators.compose([
-        Validators.minLength(3),
-        Validators.maxLength(25),
-        Validators.required
-      ])],
-      email: ['', Validators.compose([
-        Validators.minLength(8),
-        Validators.maxLength(120),
-        Validators.required
-      ])],
-      identity: ['', Validators.compose([
-        Validators.required
-      ])]
-    });
-  }
+  constructor() {}
 
   submit() {
     window.location.reload();
