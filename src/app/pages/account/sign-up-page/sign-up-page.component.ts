@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up-page',
@@ -12,6 +12,7 @@ export class SignUpPageComponent {
   public form: FormGroup;
 
   constructor(
+    private router: Router,
     private fb: FormBuilder
   ) {
     this.form = this.fb.group({
@@ -45,4 +46,9 @@ export class SignUpPageComponent {
       ])]
     });
   }
+
+  submit() {
+    this.router.navigate(['/login']);
+  }
+
 }
