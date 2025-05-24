@@ -5,8 +5,7 @@ import { EditProfileModalComponent } from "../../components/edit-profile-modal/e
 @Component({
   selector: 'app-profile-page',
   imports: [PostCardComponent, EditProfileModalComponent],
-  templateUrl: './profile-page.component.html',
-  styleUrl: './profile-page.component.css'
+  templateUrl: './profile-page.component.html'
 })
 export class ProfilePageComponent {
 

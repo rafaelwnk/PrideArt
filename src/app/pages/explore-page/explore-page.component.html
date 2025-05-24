@@ -1,9 +1,17 @@
 <div class="uk-flex uk-flex-center uk-margin-top">
     <div class="uk-flex uk-flex-column uk-width-1-1@m">
-        <div class="uk-text-center uk-margin-medium-bottom ">
+        <div class="uk-text-center uk-margin-xsmall-bottom ">
             <h1 class="uk-text-secondary">Explorar</h1>
             <p class="uk-text-secondary uk-text-meta">Área destinada a visualizar artes de diferentes artistas</p>
         </div>
-        <app-post-card></app-post-card>
+        <ul class="uk-subnav uk-card-footer uk-text-center uk-flex uk-flex-center custom-switcher"
+            uk-switcher="animation: uk-animation-fade">
+            <li><a href="#" class="uk-button uk-button-text ">Descobrir</a></li>
+            <li><a href="#" class="uk-button uk-button-text">Seguindo</a></li>
+        </ul>
+        <div class="uk-switcher uk-margin">
+            <app-post-card></app-post-card>
+            <app-post-card></app-post-card>
+        </div>
     </div>
 </div>

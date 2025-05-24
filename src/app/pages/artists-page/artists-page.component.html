@@ -1,95 +1,15 @@
 <div class="uk-flex uk-flex-center uk-margin-top">
     <div class="uk-flex uk-flex-column uk-width-1-2@m">
-        <h1 class="uk-text-center uk-margin-medium-bottom uk-text-secondary">Artistas</h1>
-        <div class="uk-card uk-card-primary uk-margin-bottom uk-border-rounded transgender card-hover">
-            <button class="uk-position-small uk-position-top-right uk-button uk-button-default uk-border-pill follow" type="button">Seguir</button>
-            <div class="uk-card-header">
-                <div class="uk-grid-small uk-flex-middle" uk-grid>
-                    <div class="uk-width-auto">
-                        <img class="uk-border-circle" width="64" height="64" src="https://placehold.co/64" alt="Avatar">
-                    </div>
-                    <div class="uk-width-expand">
-                        <h3 class="uk-card-title uk-margin-remove-bottom">Nome</h3>
-                        <p class="uk-text-meta uk-margin-remove-top"><a class="uk-button-link">&#64;username</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="uk-card-body">
-                <p class="uk-text-emphasis">Bio: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-            </div>
+        <h1 class="uk-text-center uk-margin-small-bottom uk-text-secondary">Artistas</h1>
+        <ul class="uk-subnav uk-card-footer uk-text-center uk-flex uk-flex-center custom-switcher"
+            uk-switcher="animation: uk-animation-fade">
+            <li><a href="#" class="uk-button uk-button-text ">Descobrir</a></li>
+            <li><a href="#" class="uk-button uk-button-text">Seguindo</a></li>
+        </ul>
+        <div class="uk-switcher uk-margin">
+            <app-artists-card></app-artists-card>
+            <app-artists-card></app-artists-card>
         </div>
-        <div class="uk-card uk-card-primary uk-margin-bottom uk-border-rounded bisexual card-hover">
-            <button class="uk-position-small uk-position-top-right uk-button uk-button-default uk-border-pill follow" type="button">Seguir</button>
-            <div class="uk-card-header">
-                <div class="uk-grid-small uk-flex-middle" uk-grid>
-                    <div class="uk-width-auto">
-                        <img class="uk-border-circle" width="64" height="64" src="https://placehold.co/64" alt="Avatar">
-                    </div>
-                    <div class="uk-width-expand">
-                        <h3 class="uk-card-title uk-margin-remove-bottom">Nome</h3>
-                        <p class="uk-text-meta uk-margin-remove-top"><a class="uk-button-link">&#64;username</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="uk-card-body">
-                <p class="uk-text-emphasis">Bio: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-            </div>
-        </div>
-        <div class="uk-card uk-card-primary uk-margin-bottom uk-border-rounded gay card-hover">
-            <button class="uk-position-small uk-position-top-right uk-button uk-button-default uk-border-pill follow" type="button">Seguir</button>
-            <div class="uk-card-header">
-                <div class="uk-grid-small uk-flex-middle" uk-grid>
-                    <div class="uk-width-auto">
-                        <img class="uk-border-circle" width="64" height="64" src="https://placehold.co/64" alt="Avatar">
-                    </div>
-                    <div class="uk-width-expand">
-                        <h3 class="uk-card-title uk-margin-remove-bottom">Nome</h3>
-                        <p class="uk-text-meta uk-margin-remove-top"><a class="uk-button-link">&#64;username</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="uk-card-body">
-                <p class="uk-text-emphasis">Bio: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-            </div>
-        </div>
-        <div class="uk-card uk-card-primary uk-margin-bottom uk-border-rounded drag card-hover">
-            <button class="uk-position-small uk-position-top-right uk-button uk-button-default uk-border-pill follow" type="button">Seguir</button>
-            <div class="uk-card-header">
-                <div class="uk-grid-small uk-flex-middle" uk-grid>
-                    <div class="uk-width-auto">
-                        <img class="uk-border-circle" width="64" height="64" src="https://placehold.co/64" alt="Avatar">
-                    </div>
-                    <div class="uk-width-expand">
-                        <h3 class="uk-card-title uk-margin-remove-bottom">Nome</h3>
-                        <p class="uk-text-meta uk-margin-remove-top"><a class="uk-button-link">&#64;username</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="uk-card-body">
-                <p class="uk-text-emphasis">Bio: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-            </div>
-        </div>
-        <div class="uk-card uk-card-primary uk-margin-bottom uk-border-rounded lesbian card-hover">
-            <button class="uk-position-small uk-position-top-right uk-button uk-button-default uk-border-pill follow" type="button">Seguir</button>
-            <div class="uk-card-header">
-                <div class="uk-grid-small uk-flex-middle" uk-grid>
-                    <div class="uk-width-auto">
-                        <img class="uk-border-circle" width="64" height="64" src="https://placehold.co/64" alt="Avatar">
-                    </div>
-                    <div class="uk-width-expand">
-                        <h3 class="uk-card-title uk-margin-remove-bottom">Nome</h3>
-                        <p class="uk-text-meta uk-margin-remove-top"><a class="uk-button-link">&#64;username</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="uk-card-body">
-                <p class="uk-text-emphasis">Bio: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-            </div>
-        </div>
+        
     </div>
 </div>

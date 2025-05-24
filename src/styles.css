@@ -59,3 +59,7 @@
 .card-hover:hover {
     box-shadow: 0 14px 25px rgba(255, 255, 255, 0.1) !important;
 }
+
+.custom-switcher li.uk-active a {
+  color: #9d57d3 !important; 
+}
