@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-artists-card',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   templateUrl: './artists-card.component.html'
 })
 export class ArtistsCardComponent {
-
+  @Input() user!: User;
 }

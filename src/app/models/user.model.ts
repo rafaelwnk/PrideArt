@@ -6,6 +6,8 @@ export interface User {
     name: string,
     email: string,
     identity: string,
+    bio?: string,
+    image?: string,
     posts?: Post[];
 }
 

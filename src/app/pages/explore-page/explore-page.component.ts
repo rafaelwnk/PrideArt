@@ -12,20 +12,18 @@ import { LoadingComponent } from "../../components/shared/loading/loading.compon
   imports: [PostCardComponent, CommonModule, PostDescriptionModalComponent, LoadingComponent],
   templateUrl: './explore-page.component.html'
 })
-export class ExplorePageComponent implements OnInit {
+export class ExplorePageComponent {
   public posts!: Observable<Post[]>;
   public selectedPost!: Post;
   public busy = false;
 
-  constructor(private service: PostService) {}
+  constructor(private service: PostService) { }
 
   ngOnInit() {
     this.busy = true;
     this.posts = this.service.getPosts().pipe(
       map(data => data.data),
-      tap(() => {
-        this.busy = false;
-      })
+      tap(() => this.busy = false)
     )
   }
 

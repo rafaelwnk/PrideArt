@@ -7,5 +7,5 @@ import { Post } from '../../models/post.model';
   templateUrl: './post-description-modal.component.html'
 })
 export class PostDescriptionModalComponent {
-  @Input() post!: Post;
+  @Input() post!: Post | null;
 }

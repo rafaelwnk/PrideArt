@@ -6,10 +6,21 @@
             <li><a href="#" class="uk-button uk-button-text ">Descobrir</a></li>
             <li><a href="#" class="uk-button uk-button-text">Seguindo</a></li>
         </ul>
+        @if(busy) {
+            <app-loading></app-loading>
+        }
         <div class="uk-switcher uk-margin">
-            <app-artists-card></app-artists-card>
-            <app-artists-card></app-artists-card>
+            <div>
+                @for (user of users | async; track user.id ) {
+                <app-artists-card [user]="user"></app-artists-card>
+                }
+            </div>
+            <div>
+                @for (user of users | async; track user.id ) {
+                <app-artists-card [user]="user"></app-artists-card>
+                }
+            </div>
         </div>
-        
+
     </div>
 </div>
