@@ -4,6 +4,9 @@
       <span class="uk-icon uk-margin-small-left" uk-icon="icon: logo; ratio: 2.5"></span>
     </p>
 
+    @if(busy) {
+    <app-loading></app-loading>
+    } @else {
     <div>
       <form [formGroup]="form">
         <div class="uk-card uk-card-body uk-border-rounded">
@@ -73,8 +76,8 @@
             </div>
           </div>
           <div class="uk-margin uk-text-right">
-            <button class="uk-button uk-button-primary uk-border-pill uk-text-muted"
-              [disabled]="form.invalid" (click)="submit()">Cadastrar</button>
+            <button class="uk-button uk-button-primary uk-border-pill uk-text-muted" [disabled]="form.invalid"
+              (click)="submit()">Cadastrar</button>
           </div>
         </div>
       </form>
@@ -83,5 +86,6 @@
         <a [routerLink]="['/login']" class="uk-button uk-button-link">Voltar</a>
       </p>
     </div>
+    }
   </div>
 </div>

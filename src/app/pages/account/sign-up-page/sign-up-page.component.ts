@@ -5,13 +5,15 @@ import { Router, RouterModule } from '@angular/router';
 import { AccountService } from '../../../services/account.service';
 import { ApiResponse } from '../../../models/api-response.model';
 import { ToastrService } from 'ngx-toastr';
+import { LoadingComponent } from "../../../components/shared/loading/loading.component";
 
 @Component({
   selector: 'app-sign-up-page',
-  imports: [RouterModule, ReactiveFormsModule, CommonModule],
+  imports: [RouterModule, ReactiveFormsModule, CommonModule, LoadingComponent],
   templateUrl: './sign-up-page.component.html'
 })
 export class SignUpPageComponent {
+  public busy = false;
   public form: FormGroup = new FormGroup({
     name: new FormControl<string>('', [
       Validators.minLength(3),
@@ -51,13 +53,16 @@ export class SignUpPageComponent {
   ) {}
 
   submit() {
+    this.busy = true;
     this.service.register(this.form.value).subscribe({
       next: (data: ApiResponse<string>) => {
+        this.busy = false;
         this.toastr.success(data.data);
         this.router.navigate(['/login']);
       },
       error: (error: any) => {
         console.log(error);
+        this.busy = false;
       } 
     });
   }

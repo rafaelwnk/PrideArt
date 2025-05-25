@@ -5,13 +5,15 @@ import { Router, RouterModule } from '@angular/router';
 import { AccountService } from '../../../services/account.service';
 import { ToastrService } from 'ngx-toastr';
 import { ApiResponse } from '../../../models/api-response.model';
+import { LoadingComponent } from "../../../components/shared/loading/loading.component";
 
 @Component({
   selector: 'app-reset-password-page',
-  imports: [RouterModule, ReactiveFormsModule, CommonModule],
+  imports: [RouterModule, ReactiveFormsModule, CommonModule, LoadingComponent],
   templateUrl: './reset-password-page.component.html'
 })
 export class ResetPasswordPageComponent {
+  public busy = false;
   public form: FormGroup = new FormGroup({
     email: new FormControl<string>('', [
       Validators.email,
@@ -38,13 +40,16 @@ export class ResetPasswordPageComponent {
   ) { }
 
   submit() {
+    this.busy = true;
     this.service.resetPassword(this.form.value).subscribe({
       next: (data: ApiResponse<string>) => {
+        this.busy = false;
         this.toastr.success(data.data);
         this.router.navigate(['/login']);
       },
       error: (error: any) => {
         console.log(error);
+        this.busy = false;
       }
     });
   }
