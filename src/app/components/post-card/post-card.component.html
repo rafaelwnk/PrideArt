@@ -1,118 +1,31 @@
-<div class="uk-container">
-    <div class="uk-grid-match uk-child-width-1-1 uk-child-width-1-2@m" uk-grid>
-        <div>
-            <div class="uk-card uk-border-rounded card-hover">
-                <div class="uk-card-header transgender">
-                    <button class="uk-position-small uk-position-top-right uk-button uk-button-default uk-border-pill follow"
-                        type="button">Seguir</button>
-                    <div class="uk-grid-small uk-flex-middle" uk-grid>
-                        <div class="uk-width-auto">
-                            <img class="uk-border-circle" width="64" height="64" src="https://placehold.co/64" alt="Avatar">
-                        </div>
-                        <div class="uk-width-expand">
-                            <h3 class="uk-card-title uk-margin-remove-bottom uk-text-secondary">Nome</h3>
-                            <p class="uk-text-meta uk-margin-remove-top"><a class="uk-button-link">&#64;username</a></p>
-                        </div>
-                    </div>
+<div>
+    <div class="uk-card uk-border-rounded card-hover">
+        <div class="uk-card-header" [class]="post.user.identity">
+            <button class="uk-position-small uk-position-top-right uk-button uk-button-default uk-border-pill follow"
+                type="button">Seguir</button>
+            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                <div class="uk-width-auto">
+                    <img class="uk-border-circle" width="64" height="64" src="https://placehold.co/64" alt="Image">
                 </div>
-                <div class="uk-card-media-bottom uk-inline uk-light uk-visible-toggle uk-transition-toggle" tabindex="-1">
-                    <a><img class="uk-light" src="https://placehold.co/1800x1200" width="1800" height="1200" alt=""></a>
-                    <div class="uk-overlay-default uk-position-cover uk-hidden-hover uk-transition-fade">
-                        <div class="uk-position-small uk-position-bottom-left">
-                            <button class="uk-button uk-button-link">
-                                <span class="" uk-icon="icon: heart; ratio: 2"></span>
-                            </button>
-                        </div>
-                        <a href="#post-description-modal" uk-toggle class="uk-button uk-button-text uk-text-meta uk-margin-remove-top uk-position-small uk-position-bottom-right">Saiba mais</a>
-                    </div>
+                <div class="uk-width-expand">
+                    <h3 class="uk-card-title uk-margin-remove-bottom uk-text-secondary">{{ post.user.name }}</h3>
+                    <p class="uk-text-meta uk-margin-remove-top"><a class="uk-button-link">&#64;{{ post.user.username
+                            }}</a></p>
                 </div>
             </div>
         </div>
-        <div>
-            <div class="uk-card uk-border-rounded card-hover">
-                <div class="uk-card-header transgender">
-                    <button class="uk-position-small uk-position-top-right uk-button uk-button-default uk-border-pill follow"
-                        type="button">Seguir</button>
-                    <div class="uk-grid-small uk-flex-middle" uk-grid>
-                        <div class="uk-width-auto">
-                            <img class="uk-border-circle" width="64" height="64" src="https://placehold.co/64" alt="Avatar">
-                        </div>
-                        <div class="uk-width-expand">
-                            <h3 class="uk-card-title uk-margin-remove-bottom uk-text-secondary">Nome</h3>
-                            <p class="uk-text-meta uk-margin-remove-top"><a class="uk-button-link">&#64;username</a></p>
-                        </div>
-                    </div>
+        <div class="uk-card-media-bottom uk-inline uk-light uk-visible-toggle uk-transition-toggle" tabindex="-1">
+            <a><img class="uk-light" src="{{ post.image }}" width="1800" height="1200" alt="Image"></a>
+            <div class="uk-overlay-default uk-position-cover uk-hidden-hover uk-transition-fade">
+                <div class="uk-position-small uk-position-bottom-left">
+                    <button class="uk-button uk-button-link">
+                        <span class="" uk-icon="icon: heart; ratio: 2"></span>
+                    </button>
                 </div>
-                <div class="uk-card-media-bottom uk-inline uk-light uk-visible-toggle uk-transition-toggle" tabindex="-1">
-                    <a><img class="uk-light" src="https://placehold.co/1800x1200" width="1800" height="1200" alt=""></a>
-                    <div class="uk-overlay-default uk-position-cover uk-hidden-hover uk-transition-fade">
-                        <div class="uk-position-small uk-position-bottom-left">
-                            <button class="uk-button uk-button-link">
-                                <span class="" uk-icon="icon: heart; ratio: 2"></span>
-                            </button>
-                        </div>
-                        <a href="#post-description-modal" uk-toggle class="uk-button uk-button-text uk-text-meta uk-margin-remove-top uk-position-small uk-position-bottom-right">Saiba mais</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <div class="uk-card uk-border-rounded card-hover">
-                <div class="uk-card-header gay">
-                    <button class="uk-position-small uk-position-top-right uk-button uk-button-default uk-border-pill follow"
-                        type="button">Seguir</button>
-                    <div class="uk-grid-small uk-flex-middle" uk-grid>
-                        <div class="uk-width-auto">
-                            <img class="uk-border-circle" width="64" height="64" src="https://placehold.co/64" alt="Avatar">
-                        </div>
-                        <div class="uk-width-expand">
-                            <h3 class="uk-card-title uk-margin-remove-bottom uk-text-secondary">Nome</h3>
-                            <p class="uk-text-meta uk-margin-remove-top"><a class="uk-button-link">&#64;username</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="uk-card-media-bottom uk-inline uk-light uk-visible-toggle uk-transition-toggle" tabindex="-1">
-                    <a><img class="uk-light" src="https://placehold.co/1800x1200" width="1800" height="1200" alt=""></a>
-                    <div class="uk-overlay-default uk-position-cover uk-hidden-hover uk-transition-fade">
-                        <div class="uk-position-small uk-position-bottom-left">
-                            <button class="uk-button uk-button-link">
-                                <span class="" uk-icon="icon: heart; ratio: 2"></span>
-                            </button>
-                        </div>
-                        <a href="#post-description-modal" uk-toggle class="uk-button uk-button-text uk-text-meta uk-margin-remove-top uk-position-small uk-position-bottom-right">Saiba mais</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <div class="uk-card uk-border-rounded card-hover">
-                <div class="uk-card-header gay">
-                    <button class="uk-position-small uk-position-top-right uk-button uk-button-default uk-border-pill follow"
-                        type="button">Seguir</button>
-                    <div class="uk-grid-small uk-flex-middle" uk-grid>
-                        <div class="uk-width-auto">
-                            <img class="uk-border-circle" width="64" height="64" src="https://placehold.co/64" alt="Avatar">
-                        </div>
-                        <div class="uk-width-expand">
-                            <h3 class="uk-card-title uk-margin-remove-bottom uk-text-secondary">Nome</h3>
-                            <p class="uk-text-meta uk-margin-remove-top"><a class="uk-button-link">&#64;username</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="uk-card-media-bottom uk-inline uk-light uk-visible-toggle uk-transition-toggle" tabindex="-1">
-                    <a><img class="uk-light" src="https://placehold.co/1800x1200" width="1800" height="1200" alt=""></a>
-                    <div class="uk-overlay-default uk-position-cover uk-hidden-hover uk-transition-fade">
-                        <div class="uk-position-small uk-position-bottom-left">
-                            <button class="uk-button uk-button-link">
-                                <span class="" uk-icon="icon: heart; ratio: 2"></span>
-                            </button>
-                        </div>
-                        <a href="#post-description-modal" uk-toggle class="uk-button uk-button-text uk-text-meta uk-margin-remove-top uk-position-small uk-position-bottom-right">Saiba mais</a>
-                    </div>
-                </div>
+                <a href="#post-description-modal" uk-toggle
+                    class="uk-button uk-button-text uk-text-meta uk-margin-remove-top uk-position-small uk-position-bottom-right"
+                    (click)="selectPost(post)">Saiba mais</a>
             </div>
         </div>
     </div>
 </div>
-
-<app-post-description-modal></app-post-description-modal>

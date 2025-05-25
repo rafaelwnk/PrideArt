@@ -2,16 +2,13 @@
     <div class="uk-modal-dialog">
         <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
         <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
-            <div class="uk-background-cover" style="background-image: url(https://placehold.co/1800x1200);"
-                uk-height-viewport></div>
+            <div class="uk-background-cover" [style.background-image]="'url(' + post.image + ')'" uk-height-viewport>
+            </div>
             <div class="uk-padding-large">
-                <h1 class="uk-text-primary">Título</h1>
-                <p class="uk-article-meta">Feito por: <a>username</a> em<time datetime="2025-05-23T19:00"> 23 de Maio de 2025</time></p>
-                <p class="uk-text-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <h1 class="uk-text-primary">{{ post.title }}</h1>
+                <p class="uk-article-meta">Feito por: <a>{{ post.user.username }}</a> em<time> {{ post.createdAt
+                        }}</time></p>
+                <p class="uk-text-secondary">{{ post.description }}</p>
             </div>
         </div>
     </div>

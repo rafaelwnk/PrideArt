@@ -1,12 +1,17 @@
-import { Component } from '@angular/core';
-import { PostDescriptionModalComponent } from "../post-description-modal/post-description-modal.component";
+  import { Component, EventEmitter, Input, Output} from '@angular/core';
+  import { Post } from '../../models/post.model';
 
-@Component({
-  selector: 'app-post-card',
-  imports: [PostDescriptionModalComponent],
-  templateUrl: './post-card.component.html',
-  styleUrl: './post-card.component.css'
-})
-export class PostCardComponent {
-
-}
+  @Component({
+    selector: 'app-post-card',
+    imports: [],
+    templateUrl: './post-card.component.html',
+    styleUrl: './post-card.component.css'
+  })
+  export class PostCardComponent {
+    @Input() post!: Post ;
+    @Output() selectedPost = new EventEmitter<Post>();
+    
+    selectPost(post: Post) {
+      this.selectedPost.emit(post);
+    }
+  }

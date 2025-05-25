@@ -9,9 +9,26 @@
             <li><a href="#" class="uk-button uk-button-text ">Descobrir</a></li>
             <li><a href="#" class="uk-button uk-button-text">Seguindo</a></li>
         </ul>
+        @if(busy) {
+        <app-loading></app-loading>
+        }
         <div class="uk-switcher uk-margin">
-            <app-post-card></app-post-card>
-            <app-post-card></app-post-card>
+            <div class="uk-container">
+                <div class="uk-grid-match uk-child-width-1-1 uk-child-width-1-2@m" uk-grid>
+                    @for (post of posts | async; track post.id) {
+                    <app-post-card [post]="post" (selectedPost)="onSelectedPost($event)"></app-post-card>
+                    }
+                </div>
+            </div>
+            <div class="uk-container">
+                <div class="uk-grid-match uk-child-width-1-1 uk-child-width-1-2@m" uk-grid>
+                    @for (post of posts | async; track post.id) {
+                    <app-post-card [post]="post" (selectedPost)="onSelectedPost($event)"></app-post-card>
+                    }
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+<app-post-description-modal [post]="selectedPost"></app-post-description-modal>
