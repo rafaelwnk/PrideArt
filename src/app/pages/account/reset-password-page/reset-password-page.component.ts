@@ -2,6 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { AccountService } from '../../../services/account.service';
+import { ToastrService } from 'ngx-toastr';
+import { ApiResponse } from '../../../models/api-response.model';
 
 @Component({
   selector: 'app-reset-password-page',
@@ -28,10 +31,22 @@ export class ResetPasswordPageComponent {
     ])
   })
 
-  constructor(private router: Router) {}
+  constructor(
+    private service: AccountService,
+    private router: Router,
+    private toastr: ToastrService
+  ) { }
 
   submit() {
-    this.router.navigate(['/login']);
+    this.service.resetPassword(this.form.value).subscribe({
+      next: (data: ApiResponse<string>) => {
+        this.toastr.success(data.data);
+        this.router.navigate(['/login']);
+      },
+      error: (error: any) => {
+        console.log(error);
+      }
+    });
   }
 
 }

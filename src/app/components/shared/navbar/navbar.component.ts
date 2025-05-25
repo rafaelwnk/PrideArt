@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PostModalComponent } from "../../post-modal/post-modal.component";
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { Security } from '../../../utils/security.utils';
 
 @Component({
   selector: 'app-navbar',
@@ -8,5 +9,10 @@ import { RouterModule } from '@angular/router';
   templateUrl: './navbar.component.html'
 })
 export class NavbarComponent {
+  constructor(private router: Router) {}
 
+  logout() {
+    Security.clear();
+    this.router.navigate(['/login']);
+  }
 }

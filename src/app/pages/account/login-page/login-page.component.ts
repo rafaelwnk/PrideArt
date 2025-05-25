@@ -2,6 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { AccountService } from '../../../services/account.service';
+import { ApiResponse } from '../../../models/api-response.model';
+import { Security } from '../../../utils/security.utils';
 
 @Component({
   selector: 'app-login-page',
@@ -22,9 +25,20 @@ export class LoginPageComponent {
     ])
   });
 
-  constructor(private router: Router) {}
+  constructor(
+    private service: AccountService,
+    private router: Router
+  ) {}
 
   submit() {
-    this.router.navigate(['/']);
+    this.service.login(this.form.value).subscribe({
+      next: (data: ApiResponse<string>) => {
+        Security.setToken(data.data);
+        this.router.navigate(['/']);
+      },
+      error: (error: any) => {
+        console.log(error);
+      }
+    });
   }
 }

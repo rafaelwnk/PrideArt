@@ -2,6 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { AccountService } from '../../../services/account.service';
+import { ApiResponse } from '../../../models/api-response.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-sign-up-page',
@@ -41,10 +44,22 @@ export class SignUpPageComponent {
     ])
   })
 
-  constructor(private router: Router) {}
+  constructor(
+    private service: AccountService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
   submit() {
-    this.router.navigate(['/login']);
+    this.service.register(this.form.value).subscribe({
+      next: (data: ApiResponse<string>) => {
+        this.toastr.success(data.data);
+        this.router.navigate(['/login']);
+      },
+      error: (error: any) => {
+        console.log(error);
+      } 
+    });
   }
 
 }
