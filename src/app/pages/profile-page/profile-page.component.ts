@@ -67,4 +67,8 @@ export class ProfilePageComponent {
   onSelectedPost(post: Post) {
     this.selectedPost = post;
   }
+
+  toggleFollow() {
+    this.isFollowing = !this.isFollowing;
+  }
 }

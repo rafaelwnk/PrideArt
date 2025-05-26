@@ -10,4 +10,8 @@ import { RouterModule } from '@angular/router';
 export class ArtistsCardComponent {
   @Input() user!: User;
   @Input() isFollowing: boolean = false;
+
+  toggleFollow() {
+    this.isFollowing = !this.isFollowing;
+  }
 }

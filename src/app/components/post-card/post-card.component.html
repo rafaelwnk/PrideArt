@@ -23,8 +23,8 @@
             <a><img class="uk-light" src="{{ post.image }}" width="1800" height="1200" alt="Image"></a>
             <div class="uk-overlay-default uk-position-cover uk-hidden-hover uk-transition-fade">
                 <div class="uk-position-small uk-position-bottom-left">
-                    <button class="uk-button uk-button-link">
-                        <span class="" uk-icon="icon: heart; ratio: 2"></span>
+                    <button class="uk-button uk-button-link" (click)="toggleLike()">
+                        <span [class.like]="isLiked" uk-icon="icon: heart; ratio: 2"></span>
                     </button>
                 </div>
                 <a href="#post-description-modal" uk-toggle

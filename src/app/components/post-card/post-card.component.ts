@@ -11,9 +11,14 @@ import { RouterModule } from '@angular/router';
   export class PostCardComponent {
     @Input() post!: Post ;
     @Input() isLoggedInUser: boolean = false;
+    @Input() isLiked: boolean = false;
     @Output() selectedPost = new EventEmitter<Post>();
     
     selectPost(post: Post) {
       this.selectedPost.emit(post);
     }
+
+    toggleLike() {
+    this.isLiked = !this.isLiked;
+  }
   }
