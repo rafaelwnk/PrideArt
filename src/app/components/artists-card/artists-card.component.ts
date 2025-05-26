@@ -8,4 +8,5 @@ import { User } from '../../models/user.model';
 })
 export class ArtistsCardComponent {
   @Input() user!: User;
+  @Input() isFollowing: boolean = false;
 }

@@ -9,6 +9,7 @@
   })
   export class PostCardComponent {
     @Input() post!: Post ;
+    @Input() isFollowing: boolean = false;
     @Output() selectedPost = new EventEmitter<Post>();
     
     selectPost(post: Post) {
