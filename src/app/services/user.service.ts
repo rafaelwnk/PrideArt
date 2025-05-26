@@ -15,6 +15,7 @@ export class UserService {
         return this.http.get<ApiResponse<User[]>>(this.apiUrl);
     }
 
+
     getFollowedUsers() {
         return this.http.get<ApiResponse<User[]>>(`${this.apiUrl}/followed`);
     }

@@ -11,12 +11,12 @@
         }
         <div class="uk-switcher uk-margin">
             <div>
-                @for (user of users | async; track user.id ) {
+                @for (user of users$ | async; track user.id ) {
                 <app-artists-card [user]="user"></app-artists-card>
                 }
             </div>
             <div>
-                @for (user of followedUsers | async; track user.id ) {
+                @for (user of followedUsers$ | async; track user.id ) {
                 <app-artists-card [user]="user" [isFollowing]="true"></app-artists-card>
                 }
             </div>

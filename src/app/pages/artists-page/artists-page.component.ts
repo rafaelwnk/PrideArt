@@ -12,18 +12,18 @@ import { CommonModule } from '@angular/common';
   templateUrl: './artists-page.component.html'
 })
 export class ArtistsPageComponent {
-    public users!: Observable<User[]>;
-    public followedUsers!: Observable<User[]>;
+    public users$!: Observable<User[]>;
+    public followedUsers$!: Observable<User[]>;
     public busy = false;
 
     constructor(private service: UserService) {}
 
     ngOnInit() {
       this.busy = true;
-      this.users = this.service.getUsers().pipe(
+      this.users$ = this.service.getUsers().pipe(
         map(data => data.data)
       );
-      this.followedUsers = this.service.getFollowedUsers().pipe(
+      this.followedUsers$ = this.service.getFollowedUsers().pipe(
         map(data => data.data),
         tap(() => this.busy = false)
       )

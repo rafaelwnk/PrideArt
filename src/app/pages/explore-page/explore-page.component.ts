@@ -13,8 +13,8 @@ import { LoadingComponent } from "../../components/shared/loading/loading.compon
   templateUrl: './explore-page.component.html'
 })
 export class ExplorePageComponent {
-  public posts!: Observable<Post[]>;
-  public followedPosts!: Observable<Post[]>;
+  public posts$!: Observable<Post[]>;
+  public followedPosts$!: Observable<Post[]>;
   public selectedPost!: Post;
   public busy = false;
 
@@ -22,10 +22,10 @@ export class ExplorePageComponent {
 
   ngOnInit() {
     this.busy = true;
-    this.posts = this.service.getPosts().pipe(
+    this.posts$ = this.service.getPosts().pipe(
       map(data => data.data)
     );
-    this.followedPosts = this.service.getFollowedPosts().pipe(
+    this.followedPosts$ = this.service.getFollowedPosts().pipe(
       map(data => data.data),
       tap(() => this.busy = false)
     );

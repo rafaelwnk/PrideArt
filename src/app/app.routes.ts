@@ -16,7 +16,7 @@ export const routes: Routes = [
             { path: '', component: HomePageComponent},
             { path: 'explore', component: ExplorePageComponent},
             { path: 'artists', component: ArtistsPageComponent},
-            { path: 'profile', component: ProfilePageComponent}
+            { path: ':username', component: ProfilePageComponent}
         ]
         
     },
