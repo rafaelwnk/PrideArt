@@ -14,7 +14,7 @@
             </div>
             <div class="uk-width-expand">
                 <h3 class="uk-card-title uk-margin-remove-bottom">{{ user.name }}</h3>
-                <p class="uk-text-meta uk-margin-remove-top"><a class="uk-button-link">&#64;{{ user.username }}</a>
+                <p class="uk-text-meta uk-margin-remove-top"><a [routerLink]="['/profile', user.username]" class="uk-button-link">&#64;{{ user.username }}</a>
                 </p>
             </div>
         </div>

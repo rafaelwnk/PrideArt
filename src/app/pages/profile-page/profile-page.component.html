@@ -12,6 +12,16 @@
                     class="uk-position-small uk-position-top-right uk-button uk-button-default uk-border-pill follow"
                     type="button"><span class="uk-icon" uk-icon="icon: pencil"></span>
                 </a>
+                } @else {
+                @if(isFollowing) {
+                <button
+                    class="uk-position-small uk-position-top-right uk-button uk-button-default uk-border-pill follow"
+                    type="button">Parar de seguir</button>
+                } @else {
+                <button
+                    class="uk-position-small uk-position-top-right uk-button uk-button-default uk-border-pill follow"
+                    type="button">Seguir</button>
+                }
                 }
                 <div class="uk-grid-small uk-flex-middle" uk-grid>
                     <div class="uk-width-auto">
@@ -21,7 +31,8 @@
                     <div class="uk-width-expand">
                         <h3 class="uk-card-title uk-margin-remove-bottom uk-text-secondary">{{ posts[0].user.name }}
                         </h3>
-                        <p class="uk-text-meta uk-margin-remove-top"><a class="uk-button-link">&#64;{{
+                        <p class="uk-text-meta uk-margin-remove-top"><a
+                                [routerLink]="['/profile', posts[0].user.username]" class="uk-button-link">&#64;{{
                                 posts[0].user.username }}</a>
                         </p>
                     </div>
@@ -45,13 +56,24 @@
         }
         <div class="uk-switcher uk-margin">
             <div class="uk-container">
-                <div class="uk-grid-match uk-child-width-1-1 uk-child-width-1-2@m" uk-grid>
+                <div class="uk-grid-match uk-child-width-1-1 uk-child-width-1-2@m" uk-grid
+                    uk-sortable="handle: .uk-card">
                     @for (post of posts$ | async; track post.id) {
+                    <app-post-card [post]="post" [isLoggedInUser]="isLoggedInUser"
+                        (selectedPost)="onSelectedPost($event)"></app-post-card>
+                    }
+                </div>
+            </div>
+            @if(isLoggedInUser) {
+            <div class="uk-container">
+                <div class="uk-grid-match uk-child-width-1-1 uk-child-width-1-2@m" uk-grid
+                    uk-sortable="handle: .uk-card">
+                    @for (post of likedPosts$ | async; track post.id) {
                     <app-post-card [post]="post" (selectedPost)="onSelectedPost($event)"></app-post-card>
                     }
                 </div>
             </div>
-            <p>Testando</p>
+            }
         </div>
     </div>
 </div>

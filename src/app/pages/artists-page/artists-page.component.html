@@ -10,12 +10,12 @@
             <app-loading></app-loading>
         }
         <div class="uk-switcher uk-margin">
-            <div>
+            <div uk-sortable="handle: .uk-card">
                 @for (user of users$ | async; track user.id ) {
                 <app-artists-card [user]="user"></app-artists-card>
                 }
             </div>
-            <div>
+            <div uk-sortable="handle: .uk-card">
                 @for (user of followedUsers$ | async; track user.id ) {
                 <app-artists-card [user]="user" [isFollowing]="true"></app-artists-card>
                 }

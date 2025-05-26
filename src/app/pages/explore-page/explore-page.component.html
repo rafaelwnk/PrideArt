@@ -14,16 +14,16 @@
         }
         <div class="uk-switcher uk-margin">
             <div class="uk-container">
-                <div class="uk-grid-match uk-child-width-1-1 uk-child-width-1-2@m" uk-grid>
+                <div class="uk-grid-match uk-child-width-1-1 uk-child-width-1-2@m" uk-grid uk-sortable="handle: .uk-card">
                     @for (post of posts$ | async; track post.id) {
                     <app-post-card [post]="post" (selectedPost)="onSelectedPost($event)"></app-post-card>
                     }
                 </div>
             </div>
             <div class="uk-container">
-                <div class="uk-grid-match uk-child-width-1-1 uk-child-width-1-2@m" uk-grid>
+                <div class="uk-grid-match uk-child-width-1-1 uk-child-width-1-2@m" uk-grid uk-sortable="handle: .uk-card">
                     @for (post of followedPosts$ | async; track post.id) {
-                    <app-post-card [post]="post" [isFollowing]="true" (selectedPost)="onSelectedPost($event)"></app-post-card>
+                    <app-post-card [post]="post" (selectedPost)="onSelectedPost($event)"></app-post-card>
                     }
                 </div>
             </div>

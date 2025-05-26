@@ -4,7 +4,6 @@ import { Router, RouterModule } from '@angular/router';
 import { Security } from '../../../utils/security.utils';
 import { AccountService } from '../../../services/account.service';
 import { User } from '../../../models/user.model';
-import { Observable } from 'rxjs';
 import { ApiResponse } from '../../../models/api-response.model';
 
 @Component({

@@ -1,15 +1,16 @@
   import { Component, EventEmitter, Input, Output} from '@angular/core';
   import { Post } from '../../models/post.model';
+import { RouterModule } from '@angular/router';
 
   @Component({
     selector: 'app-post-card',
-    imports: [],
+    imports: [RouterModule],
     templateUrl: './post-card.component.html',
     styleUrl: './post-card.component.css'
   })
   export class PostCardComponent {
     @Input() post!: Post ;
-    @Input() isFollowing: boolean = false;
+    @Input() isLoggedInUser: boolean = false;
     @Output() selectedPost = new EventEmitter<Post>();
     
     selectPost(post: Post) {
