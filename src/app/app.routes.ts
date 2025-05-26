@@ -7,6 +7,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ArtistsPageComponent } from './pages/artists-page/artists-page.component';
 import { ExplorePageComponent } from './pages/explore-page/explore-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
+import { AccountService } from './services/account.service';
 
 export const routes: Routes = [
     {
@@ -14,9 +15,9 @@ export const routes: Routes = [
         component: FramePageComponent,
         children: [
             { path: '', component: HomePageComponent},
-            { path: 'explore', component: ExplorePageComponent},
-            { path: 'artists', component: ArtistsPageComponent},
-            { path: 'profile/:username', component: ProfilePageComponent}
+            { path: 'explore', component: ExplorePageComponent, canActivate: [AccountService]},
+            { path: 'artists', component: ArtistsPageComponent, canActivate: [AccountService]},
+            { path: 'profile/:username', component: ProfilePageComponent, canActivate: [AccountService]}
         ]
         
     },

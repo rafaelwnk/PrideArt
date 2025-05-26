@@ -12,7 +12,8 @@ import { ApiResponse } from '../../../models/api-response.model';
   templateUrl: './navbar.component.html'
 })
 export class NavbarComponent {
-  public user!: User;
+  public user: User | null = null;
+  public busy = false;
 
   constructor(
     private accountService: AccountService,
@@ -21,12 +22,15 @@ export class NavbarComponent {
 
 
   ngOnInit() {
+    this.busy = true;
     this.accountService.getLoggedInUser().subscribe({
       next: (data: ApiResponse<User>) => {
         this.user = data.data; 
+        this.busy = false;
       },
       error: (error: any) => {
         console.log(error);
+        this.busy = false;
       }
     })
   }

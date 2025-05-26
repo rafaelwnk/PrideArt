@@ -3,14 +3,18 @@ import { Injectable } from "@angular/core";
 import { User, UserLogin, UserResetPassword } from "../models/user.model";
 import { ApiResponse } from "../models/api-response.model";
 import { Security } from "../utils/security.utils";
+import { CanActivate, Router } from "@angular/router";
 
 @Injectable({
     providedIn: 'root'
 })
-export class AccountService {
+export class AccountService implements CanActivate {
     private apiUrl = "http://localhost:3000/v1/accounts";
 
-    constructor(private http: HttpClient) { }
+    constructor(
+        private http: HttpClient,
+        private router: Router
+    ) { }
 
     public composeHeaders() {
         const token = Security.getToken();
@@ -36,5 +40,13 @@ export class AccountService {
 
     getLoggedInUser() {
         return this.http.get<ApiResponse<User>>(this.apiUrl, { headers: this.composeHeaders() });
+    }
+
+    canActivate() {
+        if(!Security.hasToken()) {
+            this.router.navigate(['/login']);
+            return false;
+        }
+        return true;
     }
 }

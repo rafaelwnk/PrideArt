@@ -8,11 +8,13 @@
             </div>
             <div class="uk-navbar-right">
                 <ul class="uk-navbar-nav">
+                    @if(user) {
                     <li>
                         <a href="#post-modal" uk-toggle>
                             <span class="uk-icon uk-margin-small-right" uk-icon="icon: plus"></span>
                         </a>
                     </li>
+                    }
                     <li>
                         <a [routerLink]="['/profile', user?.username]">
                             <span class="uk-icon uk-margin-small-right" uk-icon="icon: user"></span>
