@@ -14,4 +14,8 @@ export class PostService {
     getPosts() {
         return this.http.get<ApiResponse<Post[]>>(this.apiUrl);
     }
+
+    getFollowedPosts() {
+        return this.http.get<ApiResponse<Post[]>>(`${this.apiUrl}/followed`);
+    }
 }
