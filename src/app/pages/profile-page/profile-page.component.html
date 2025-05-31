@@ -3,9 +3,8 @@
         @if(busy) {
         <app-loading></app-loading>
         }
-        @let posts = posts$ | async;
-        @if(posts) {
-        <div class="uk-position-relative" [class]="posts[0].user.identity">
+        @else {
+        <div class="uk-position-relative" [class]="profileUser.identity">
             <div class="uk-card-header">
                 @if(isLoggedInUser) {
                 <a href="#edit-profile-modal" uk-toggle
@@ -14,38 +13,35 @@
                 </a>
                 } @else {
                 @if(isFollowing) {
-                <button
-                    (click)="toggleFollow()"
+                <button (click)="toggleFollow()"
                     class="uk-position-small uk-position-top-right uk-button uk-button-default uk-border-pill follow"
                     type="button">Parar de seguir</button>
                 } @else {
-                <button
-                    (click)="toggleFollow()"
+                <button (click)="toggleFollow()"
                     class="uk-position-small uk-position-top-right uk-button uk-button-default uk-border-pill follow"
                     type="button">Seguir</button>
                 }
                 }
                 <div class="uk-grid-small uk-flex-middle" uk-grid>
                     <div class="uk-width-auto">
-                        <img class="uk-border-circle" width="128" height="128" src="{{ posts[0].user.image }}"
+                        <img class="uk-border-circle" width="128" height="128" src="{{ profileUser.image }}"
                             alt="Image">
                     </div>
                     <div class="uk-width-expand">
-                        <h3 class="uk-card-title uk-margin-remove-bottom uk-text-secondary">{{ posts[0].user.name }}
+                        <h3 class="uk-card-title uk-margin-remove-bottom uk-text-secondary">{{ profileUser.username }}
                         </h3>
                         <p class="uk-text-meta uk-margin-remove-top"><a
-                                [routerLink]="['/profile', posts[0].user.username]" class="uk-button-link">&#64;{{
-                                posts[0].user.username }}</a>
+                                [routerLink]="['/profile', profileUser.username]" class="uk-button-link">&#64;{{
+                                profileUser.username }}</a>
                         </p>
                     </div>
 
                 </div>
             </div>
             <div class="uk-card-body">
-                <p class="uk-text-secondary">{{ posts[0].user.bio }}</p>
+                <p class="uk-text-secondary">{{ profileUser.bio }}</p>
             </div>
         </div>
-        }
 
         @if(!busy) {
         <ul class="uk-subnav uk-card-footer uk-text-center uk-flex uk-flex-center custom-switcher"
@@ -60,7 +56,7 @@
             <div class="uk-container">
                 <div class="uk-grid-match uk-child-width-1-1 uk-child-width-1-2@m" uk-grid
                     uk-sortable="handle: .uk-card">
-                    @for (post of posts$ | async; track post.id) {
+                    @for (post of posts; track post.id) {
                     <app-post-card [post]="post" [isLoggedInUser]="isLoggedInUser"
                         (selectedPost)="onSelectedPost($event)"></app-post-card>
                     }
@@ -70,13 +66,15 @@
             <div class="uk-container">
                 <div class="uk-grid-match uk-child-width-1-1 uk-child-width-1-2@m" uk-grid
                     uk-sortable="handle: .uk-card">
-                    @for (post of likedPosts$ | async; track post.id) {
-                    <app-post-card [post]="post" [isLiked]="true" (selectedPost)="onSelectedPost($event)"></app-post-card>
+                    @for (post of likedPosts; track post.id) {
+                    <app-post-card [post]="post" [isLiked]="true"
+                        (selectedPost)="onSelectedPost($event)"></app-post-card>
                     }
                 </div>
             </div>
             }
         </div>
+        }
     </div>
 </div>
 

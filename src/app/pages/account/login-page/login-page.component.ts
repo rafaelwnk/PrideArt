@@ -6,6 +6,7 @@ import { AccountService } from '../../../services/account.service';
 import { ApiResponse } from '../../../models/api-response.model';
 import { Security } from '../../../utils/security.utils';
 import { LoadingComponent } from "../../../components/shared/loading/loading.component";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login-page',
@@ -29,7 +30,8 @@ export class LoginPageComponent {
 
   constructor(
     private service: AccountService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   submit() {
@@ -41,7 +43,8 @@ export class LoginPageComponent {
         this.router.navigate(['/']);
       },
       error: (error: any) => {
-        console.log(error);
+        console.log(error.error);
+        this.toastr.error(error.error.errors);
         this.busy = false;
       }
     });

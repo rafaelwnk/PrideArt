@@ -7,6 +7,7 @@ export interface Post {
     description: string,
     userId: number,
     user: User,
+    usersLiked: User[]
     createdAt: Date,
     lastUpdate: Date;
 }

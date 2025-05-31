@@ -24,22 +24,25 @@
                 <div class="uk-margin">
                     <div class="uk-width-1-1 uk-inline">
                         <span class="uk-form-icon" uk-icon="icon: happy"></span>
-                        <input class="uk-input uk-form-large uk-text-muted" formControlName="name" type="text" placeholder="Nome"
-                        [ngClass]="{'uk-form-danger': (!form.controls['name'].valid && !form.controls['name'].pristine) }">
+                        <input class="uk-input uk-form-large uk-text-muted" formControlName="name" type="text"
+                            placeholder="Nome"
+                            [ngClass]="{'uk-form-danger': (!form.controls['name'].valid && !form.controls['name'].pristine) }">
                     </div>
                 </div>
                 <div class="uk-margin">
                     <div class="uk-width-1-1 uk-inline">
                         <span class="uk-form-icon" uk-icon="icon: user"></span>
-                        <input class="uk-input uk-form-large uk-text-muted" formControlName="username" type="text" placeholder="Usuário"
-                        [ngClass]="{'uk-form-danger': (!form.controls['username'].valid && !form.controls['username'].pristine) }">
+                        <input class="uk-input uk-form-large uk-text-muted" formControlName="username" type="text"
+                            placeholder="Usuário"
+                            [ngClass]="{'uk-form-danger': (!form.controls['username'].valid && !form.controls['username'].pristine) }">
                     </div>
                 </div>
                 <div class="uk-margin">
                     <div class="uk-width-1-1 uk-inline">
                         <span class="uk-form-icon" uk-icon="icon: mail"></span>
-                        <input class="uk-input uk-form-large uk-text-muted" formControlName="email" type="email" placeholder="Email"
-                        [ngClass]="{'uk-form-danger': (!form.controls['email'].valid && !form.controls['email'].pristine) }">
+                        <input class="uk-input uk-form-large uk-text-muted" formControlName="email" type="email"
+                            placeholder="Email"
+                            [ngClass]="{'uk-form-danger': (!form.controls['email'].valid && !form.controls['email'].pristine) }">
                     </div>
                 </div>
                 <div class="uk-margin">
@@ -47,18 +50,18 @@
                         <span class="uk-form-icon uk-margin-small-right" uk-icon="icon: heart"></span>
                         <select formControlName="identity" aria-label="Custom controls">
                             <option value="" disabled selected>Como você se identifica?</option>
-                            <option value="1">Lésbica</option>
-                            <option value="2">Gay</option>
-                            <option value="3">Bissexual</option>
-                            <option value="4">Transgênero</option>
-                            <option value="5">Queer</option>
-                            <option value="6">Intersexo</option>
-                            <option value="7">Assexual</option>
-                            <option value="8">Pansexual</option>
-                            <option value="9">Demissexual</option>
-                            <option value="10">Não-binário</option>
-                            <option value="11">Travesti</option>
-                            <option value="12">Drag</option>
+                            <option value="lesbian">Lésbica</option>
+                            <option value="gay">Gay</option>
+                            <option value="bisexual">Bissexual</option>
+                            <option value="transgender">Transgênero</option>
+                            <option value="queer">Queer</option>
+                            <option value="intersex">Intersexo</option>
+                            <option value="asexual">Assexual</option>
+                            <option value="pansexual">Pansexual</option>
+                            <option value="demisexual">Demissexual</option>
+                            <option value="non-binary">Não-binário</option>
+                            <option value="travesti">Travesti</option>
+                            <option value="drag">Drag</option>
                         </select>
                         <button class="uk-input uk-form-large uk-text-muted uk-flex uk-flex-between uk-flex-middle"
                             type="button" tabindex="-1">
@@ -71,7 +74,8 @@
         </div>
         <div class="uk-modal-footer uk-text-right">
             <a class="uk-button uk-button-link uk-modal-close uk-margin-small-right" type="button">Cancelar</a>
-            <button class="uk-button uk-button-primary uk-border-rounded" type="button" [disabled]="form.invalid" (click)="submit()">Salvar</button>
+            <button class="uk-button uk-button-primary uk-border-rounded" type="button" [disabled]="form.invalid"
+                (click)="submit()">Salvar</button>
         </div>
     </div>
 </div>

@@ -55,13 +55,14 @@ export class SignUpPageComponent {
   submit() {
     this.busy = true;
     this.service.register(this.form.value).subscribe({
-      next: (data: ApiResponse<string>) => {
+      next: (data: ApiResponse<any>) => {
         this.busy = false;
-        this.toastr.success(data.data);
+        this.toastr.success(data.data.message);
         this.router.navigate(['/login']);
       },
       error: (error: any) => {
-        console.log(error);
+        console.log(error.error);
+        this.toastr.error(error.error.errors);
         this.busy = false;
       } 
     });

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PostModalComponent } from "../../post-modal/post-modal.component";
+import { PostModalComponent } from "../../post/post-modal/post-modal.component";
 import { Router, RouterModule } from '@angular/router';
 import { Security } from '../../../utils/security.utils';
 import { AccountService } from '../../../services/account.service';

@@ -2,8 +2,8 @@ import { Post } from "./post.model";
 
 export interface User {
     id?: number,
-    username: string,
     name: string,
+    username: string,
     email: string,
     identity: string,
     bio?: string,

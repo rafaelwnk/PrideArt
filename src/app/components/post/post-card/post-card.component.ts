@@ -1,5 +1,5 @@
-  import { Component, EventEmitter, Input, Output} from '@angular/core';
-  import { Post } from '../../models/post.model';
+import { Component, EventEmitter, Input, Output} from '@angular/core';
+import { Post } from '../../../models/post.model';
 import { RouterModule } from '@angular/router';
 
   @Component({
