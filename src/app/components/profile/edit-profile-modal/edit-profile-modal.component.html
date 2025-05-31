@@ -24,7 +24,7 @@
                 <div class="uk-margin">
                     <div class="uk-width-1-1 uk-inline">
                         <span class="uk-form-icon" uk-icon="icon: happy"></span>
-                        <input class="uk-input uk-form-large uk-text-muted" formControlName="name" type="text"
+                        <input class="uk-input uk-form-large uk-text-muted uk-border-rounded" formControlName="name" type="text"
                             placeholder="Nome"
                             [ngClass]="{'uk-form-danger': (!form.controls['name'].valid && !form.controls['name'].pristine) }">
                     </div>
@@ -32,7 +32,7 @@
                 <div class="uk-margin">
                     <div class="uk-width-1-1 uk-inline">
                         <span class="uk-form-icon" uk-icon="icon: user"></span>
-                        <input class="uk-input uk-form-large uk-text-muted" formControlName="username" type="text"
+                        <input class="uk-input uk-form-large uk-text-muted uk-border-rounded" formControlName="username" type="text"
                             placeholder="Usuário"
                             [ngClass]="{'uk-form-danger': (!form.controls['username'].valid && !form.controls['username'].pristine) }">
                     </div>
@@ -40,7 +40,7 @@
                 <div class="uk-margin">
                     <div class="uk-width-1-1 uk-inline">
                         <span class="uk-form-icon" uk-icon="icon: mail"></span>
-                        <input class="uk-input uk-form-large uk-text-muted" formControlName="email" type="email"
+                        <input class="uk-input uk-form-large uk-text-muted uk-border-rounded" formControlName="email" type="email"
                             placeholder="Email"
                             [ngClass]="{'uk-form-danger': (!form.controls['email'].valid && !form.controls['email'].pristine) }">
                     </div>
@@ -49,7 +49,7 @@
                     <div class="uk-width-1-1 uk-inline" uk-form-custom="target: > * > span:first-child">
                         <span class="uk-form-icon uk-margin-small-right" uk-icon="icon: heart"></span>
                         <select formControlName="identity" aria-label="Custom controls">
-                            <option value="" disabled selected>Como você se identifica?</option>
+                            <option value="" disabled selected>Como se identifica?</option>
                             <option value="lesbian">Lésbica</option>
                             <option value="gay">Gay</option>
                             <option value="bisexual">Bissexual</option>
@@ -63,12 +63,16 @@
                             <option value="travesti">Travesti</option>
                             <option value="drag">Drag</option>
                         </select>
-                        <button class="uk-input uk-form-large uk-text-muted uk-flex uk-flex-between uk-flex-middle"
+                        <button class="uk-input uk-form-large uk-text-muted uk-flex uk-flex-between uk-flex-middle uk-border-rounded"
                             type="button" tabindex="-1">
                             <span></span>
                             <span uk-icon="icon: chevron-down"></span>
                         </button>
                     </div>
+                </div>
+                <div class="uk-margin">
+                    <textarea class="uk-textarea uk-form-large uk-text-muted uk-border-rounded" rows="5" placeholder="Bio"
+                        aria-label="Textarea"></textarea>
                 </div>
             </form>
         </div>

@@ -9,21 +9,21 @@
     } @else {
     <div>
       <form [formGroup]="form">
-        <div class="uk-card uk-card-body uk-border-rounded">
+        <div class="uk-card uk-card-body">
           <h3 class="uk-card-title uk-text-muted">Faça login</h3>
           <div class="uk-margin">
             <div class="uk-width-1-1 uk-inline">
               <span class="uk-form-icon" uk-icon="icon: user"></span>
-              <input class="uk-input uk-form-large uk-text-muted" formControlName="username" type="text"
-                placeholder="Usuário"
+              <input class="uk-input uk-form-large uk-text-muted uk-border-rounded" formControlName="username"
+                type="text" placeholder="Usuário"
                 [ngClass]="{'uk-form-danger': (!form.controls['username'].valid && !form.controls['username'].pristine) }">
             </div>
           </div>
           <div class="uk-margin">
             <div class="uk-width-1-1 uk-inline">
               <span class="uk-form-icon" uk-icon="icon: lock"></span>
-              <input class="uk-input uk-form-large uk-text-muted" formControlName="password" type="password"
-                placeholder="Senha"
+              <input class="uk-input uk-form-large uk-text-muted uk-border-rounded" formControlName="password"
+                type="password" placeholder="Senha"
                 [ngClass]="{'uk-form-danger': (!form.controls['password'].valid && !form.controls['password'].pristine) }">
             </div>
           </div>
@@ -31,15 +31,14 @@
             <button class="uk-button uk-button-primary uk-border-pill uk-text-muted" [disabled]="form.invalid"
               (click)="submit()">Entrar</button>
           </div>
-        </div>
-      </form>
-
-      <p class="uk-text-center">
+          <p class="uk-text-center">
         <a [routerLink]="['/signup']"
-          class="uk-button uk-width-3-4 uk-button-large uk-button-primary uk-margin-small-bottom uk-border-pill">Cadastre-se</a>
+          class="uk-button uk-width-3-4 uk-button-large uk-button-primary uk-margin-small-bottom uk-margin-small-top uk-border-pill">Cadastre-se</a>
         <br>
         <a [routerLink]="['/reset-password']" class="uk-button uk-button-link">Esqueci minha senha</a>
       </p>
+        </div>
+      </form>
     </div>
     }
   </div>
