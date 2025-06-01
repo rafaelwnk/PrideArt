@@ -23,6 +23,7 @@ export class ProfilePageComponent {
   public isFollowing = false;
   public paramsUsername!: string;
   public profileUser!: User;
+  public editProfileUser!: User;
   public posts!: Post[];
   public likedPosts!: Post[];
   public selectedPost!: Post;
@@ -50,6 +51,7 @@ export class ProfilePageComponent {
 
           if (this.isLoggedInUser) {
             this.profileUser = data.data;
+            this.editProfileUser = data.data;
             this.loadLoggedInUserData();
           } else {
             this.loadUserData();

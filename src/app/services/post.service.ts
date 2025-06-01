@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { ApiResponse } from "../models/api-response.model";
-import { Post } from "../models/post.model";
+import { NewPost, Post } from "../models/post.model";
 import { Security } from "../utils/security.utils";
 import { Observable } from "rxjs";
 
@@ -17,6 +17,10 @@ export class PostService {
         const token = Security.getToken();
         const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
         return headers;
+    }
+
+    createPost(data: NewPost) {
+        return this.http.post<ApiResponse<any>>(this.apiUrl, data, { headers: this.composeHeaders() })
     }
 
     getPosts() {

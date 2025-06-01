@@ -1,3 +1,6 @@
+@if(busy) {
+    <app-loading></app-loading>
+} @else {
 <div id="post-modal" class="uk-flex-top" uk-modal>
     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-border-rounded">
         <button class="uk-modal-close-default" type="button" uk-close></button>
@@ -5,25 +8,45 @@
             <h2 class="uk-modal-title uk-text-muted">Postar</h2>
         </div>
         <div class="uk-modal-body">
-            <form>
-                <input class="uk-input uk-form-large uk-text-muted" type="text" placeholder="Título">
+            <form [formGroup]="form">
+                <input class="uk-input uk-form-large uk-text-muted" formControlName="title" type="text"
+                    placeholder="Título"
+                    [ngClass]="{'uk-form-danger': (!form.controls['title'].valid && !form.controls['title'].pristine) }">
                 <div class="js-upload uk-placeholder uk-text-center">
+                    @if(postImage) {
+                    <div class="uk-inline uk-visible-toggle uk-transition-toggle" tabindex="-1">
+                        <img class="uk-width-1-1 uk-height-1-1 uk-object-cover" [src]="postImage" alt="Post image">
+                        <div
+                            class="uk-overlay uk-overlay-default uk-position-cover uk-hidden-hover uk-transition-fade uk-flex uk-flex-center uk-flex-middle">
+                            <div uk-form-custom>
+                                <input type="file" accept="image/*" (change)="onImageSelected($event)">
+                                <button class="uk-button uk-button-link">
+                                    <span class="" uk-icon="icon: pencil; ratio: 1.5"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    } @else {
                     <span uk-icon="icon: cloud-upload"></span>
                     <span class="uk-text-middle">Arraste uma foto ou </span>
                     <div uk-form-custom>
-                        <input type="file" accept="image/*">
+                        <input type="file" accept="image/*" (change)="onImageSelected($event)">
                         <span class="uk-link">clique aqui</span>
                     </div>
+                    }
                 </div>
                 <div class="uk-margin">
-                    <textarea class="uk-textarea uk-text-muted" rows="5" placeholder="Descrição"
-                        aria-label="Textarea"></textarea>
+                    <textarea class="uk-textarea uk-text-muted" rows="5" formControlName="description"
+                        placeholder="Descrição" aria-label="Textarea"
+                        [ngClass]="{'uk-form-danger': (!form.controls['description'].valid && !form.controls['description'].pristine) }"></textarea>
                 </div>
             </form>
         </div>
         <div class="uk-modal-footer uk-text-right">
             <a class="uk-button uk-button-link uk-modal-close uk-margin-small-right" type="button">Cancelar</a>
-            <button class="uk-button uk-button-primary uk-border-rounded" type="button">Postar</button>
+            <button class="uk-button uk-button-primary uk-border-rounded" type="button"
+                (click)="submit()">Postar</button>
         </div>
     </div>
 </div>
+}

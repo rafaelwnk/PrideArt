@@ -11,3 +11,9 @@ export interface Post {
     createdAt: Date,
     lastUpdate: Date;
 }
+
+export interface NewPost {
+    title: string,
+    image: string,
+    description: string,
+}

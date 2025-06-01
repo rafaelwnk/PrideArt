@@ -36,7 +36,7 @@ export class EditProfileModalComponent {
     bio: new FormControl<string>('', [
       Validators.maxLength(255)
     ]),
-    image: new FormControl<string | File>('')
+    image: new FormControl<string>('')
   });
 
   constructor(
