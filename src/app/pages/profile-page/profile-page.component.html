@@ -28,7 +28,7 @@
                             alt="Image">
                     </div>
                     <div class="uk-width-expand">
-                        <h3 class="uk-card-title uk-margin-remove-bottom uk-text-secondary">{{ profileUser.username }}
+                        <h3 class="uk-card-title uk-margin-remove-bottom uk-text-secondary">{{ profileUser.name }}
                         </h3>
                         <p class="uk-text-meta uk-margin-remove-top"><a
                                 [routerLink]="['/profile', profileUser.username]" class="uk-button-link">&#64;{{
@@ -78,5 +78,7 @@
     </div>
 </div>
 
-<app-edit-profile-modal></app-edit-profile-modal>
+@if(profileUser) {
+    <app-edit-profile-modal [user]="profileUser"></app-edit-profile-modal>
+}
 <app-post-description-modal [post]="selectedPost"></app-post-description-modal>

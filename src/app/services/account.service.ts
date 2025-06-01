@@ -42,6 +42,14 @@ export class AccountService implements CanActivate {
         return this.http.get<ApiResponse<User>>(`${this.apiUrl}/me`, { headers: this.composeHeaders() });
     }
 
+    editProfile(data: User) {
+        return this.http.put<ApiResponse<any>>(`${this.apiUrl}/edit-profile`, data, { headers: this.composeHeaders() })
+    }
+
+    deleteProfile() {
+        return this.http.delete<ApiResponse<any>>(this.apiUrl, { headers: this.composeHeaders() });
+    }
+
     getUsers() {
         return this.http.get<ApiResponse<User[]>>(`${this.apiUrl}/explore`, { headers: this.composeHeaders() });
     }

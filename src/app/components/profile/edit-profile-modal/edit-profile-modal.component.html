@@ -1,6 +1,9 @@
+@if(busy) {
+<app-loading></app-loading>
+} @else {
 <div id="edit-profile-modal" class="uk-flex-top" uk-modal>
     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-border-rounded">
-        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <button class="uk-modal-close-default" type="button" uk-close (click)="reset()"></button>
         <div class="uk-modal-header">
             <h2 class="uk-modal-title uk-text-muted">Editar Perfil</h2>
         </div>
@@ -8,12 +11,11 @@
             <form [formGroup]="form">
                 <div class="uk-width-auto uk-flex uk-flex-center">
                     <div class="uk-inline uk-visible-toggle uk-transition-toggle" tabindex="-1">
-                        <img class="uk-border-circle" width="128" height="128" src="https://placehold.co/128"
-                            alt="Avatar">
+                        <img class="uk-border-circle" width="128" height="128" [src]="editUserImage" alt="Avatar">
                         <div
                             class="uk-overlay uk-overlay-default uk-position-cover uk-hidden-hover uk-transition-fade uk-flex uk-flex-center uk-flex-middle">
                             <div uk-form-custom>
-                                <input type="file" accept="image/*">
+                                <input type="file" accept="image/*" (change)="onImageSelected($event)">
                                 <button class="uk-button uk-button-link">
                                     <span class="" uk-icon="icon: pencil; ratio: 1.5"></span>
                                 </button>
@@ -24,24 +26,16 @@
                 <div class="uk-margin">
                     <div class="uk-width-1-1 uk-inline">
                         <span class="uk-form-icon" uk-icon="icon: happy"></span>
-                        <input class="uk-input uk-form-large uk-text-muted uk-border-rounded" formControlName="name" type="text"
-                            placeholder="Nome"
+                        <input class="uk-input uk-form-large uk-text-muted uk-border-rounded" formControlName="name"
+                            type="text" placeholder="Nome"
                             [ngClass]="{'uk-form-danger': (!form.controls['name'].valid && !form.controls['name'].pristine) }">
                     </div>
                 </div>
                 <div class="uk-margin">
                     <div class="uk-width-1-1 uk-inline">
-                        <span class="uk-form-icon" uk-icon="icon: user"></span>
-                        <input class="uk-input uk-form-large uk-text-muted uk-border-rounded" formControlName="username" type="text"
-                            placeholder="Usuário"
-                            [ngClass]="{'uk-form-danger': (!form.controls['username'].valid && !form.controls['username'].pristine) }">
-                    </div>
-                </div>
-                <div class="uk-margin">
-                    <div class="uk-width-1-1 uk-inline">
                         <span class="uk-form-icon" uk-icon="icon: mail"></span>
-                        <input class="uk-input uk-form-large uk-text-muted uk-border-rounded" formControlName="email" type="email"
-                            placeholder="Email"
+                        <input class="uk-input uk-form-large uk-text-muted uk-border-rounded" formControlName="email"
+                            type="email" placeholder="Email"
                             [ngClass]="{'uk-form-danger': (!form.controls['email'].valid && !form.controls['email'].pristine) }">
                     </div>
                 </div>
@@ -63,7 +57,8 @@
                             <option value="travesti">Travesti</option>
                             <option value="drag">Drag</option>
                         </select>
-                        <button class="uk-input uk-form-large uk-text-muted uk-flex uk-flex-between uk-flex-middle uk-border-rounded"
+                        <button
+                            class="uk-input uk-form-large uk-text-muted uk-flex uk-flex-between uk-flex-middle uk-border-rounded"
                             type="button" tabindex="-1">
                             <span></span>
                             <span uk-icon="icon: chevron-down"></span>
@@ -71,15 +66,35 @@
                     </div>
                 </div>
                 <div class="uk-margin">
-                    <textarea class="uk-textarea uk-form-large uk-text-muted uk-border-rounded" rows="5" placeholder="Bio"
-                        aria-label="Textarea"></textarea>
+                    <textarea class="uk-textarea uk-form-large uk-text-muted uk-border-rounded" rows="5"
+                        formControlName="bio" placeholder="Bio" aria-label="Textarea"
+                        [ngClass]="{'uk-form-danger': (!form.controls['bio'].valid && !form.controls['bio'].pristine) }"></textarea>
                 </div>
             </form>
         </div>
-        <div class="uk-modal-footer uk-text-right">
-            <a class="uk-button uk-button-link uk-modal-close uk-margin-small-right" type="button">Cancelar</a>
-            <button class="uk-button uk-button-primary uk-border-rounded" type="button" [disabled]="form.invalid"
-                (click)="submit()">Salvar</button>
+        <div class="uk-modal-footer">
+            <a class="uk-button uk-button-danger uk-border-rounded uk-float-left" type="button"
+                href="#delete-profile-modal" uk-toggle>Deletar
+                conta</a>
+            <div class="uk-float-right">
+                <a class="uk-button uk-button-link uk-modal-close uk-margin-small-right" type="button"
+                    (click)="reset()">Cancelar</a>
+                <button class="uk-button uk-button-primary uk-border-rounded uk-modal-close" type="button" [disabled]="form.invalid"
+                    (click)="submit()">Salvar</button>
+            </div>
         </div>
     </div>
 </div>
+
+<div id="delete-profile-modal" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <h2 class="uk-modal-title uk-text-muted uk-text-center">Tem certeza que deseja deletar sua conta?</h2>
+        <div class="uk-modal-footer uk-flex uk-flex-between uk-flex-middle">
+            <a class="uk-button uk-button-link uk-modal-close" type="button"
+                (click)="reset()">Cancelar</a>
+            <button class="uk-button uk-button-danger uk-border-rounded uk-modal-close" type="button" (click)="deleteProfile()">Deletar conta</button>
+        </div>
+    </div>
+</div>
+}

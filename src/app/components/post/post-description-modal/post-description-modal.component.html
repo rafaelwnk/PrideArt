@@ -6,7 +6,7 @@
             </div>
             <div class="uk-padding-large">
                 <h1 class="uk-text-primary">{{ post?.title }}</h1>
-                <p class="uk-article-meta">Feito por: <a>{{ post?.user?.username }}</a> em<time> {{ post?.createdAt
+                <p class="uk-article-meta">Feito por: <a [routerLink]="['/profile', post?.user?.username]" >{{ post?.user?.username }}</a> em<time> {{ post?.createdAt
                         }}</time></p>
                 <p class="uk-text-secondary">{{ post?.description }}</p>
             </div>
