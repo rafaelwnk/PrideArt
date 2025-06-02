@@ -8,6 +8,8 @@ import { PostDescriptionModalComponent } from "../../components/post/post-descri
 import { LoadingComponent } from "../../components/shared/loading/loading.component";
 import { ApiResponse } from '../../models/api-response.model';
 import { ToastrService } from 'ngx-toastr';
+import { AccountService } from '../../services/account.service';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-explore-page',
@@ -16,12 +18,14 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ExplorePageComponent {
   public posts!: Post[];
+  public user!: User;
   public followingPosts!: Post[];
   public selectedPost!: Post;
   public busy = false;
 
   constructor(
-    private service: PostService,
+    private postService: PostService,
+    private accountService: AccountService,
     private toastr: ToastrService
   ) { }
 
@@ -29,13 +33,15 @@ export class ExplorePageComponent {
     this.busy = true;
 
     forkJoin([
-      this.service.getPosts(),
-      this.service.getFollowingPosts()
+      this.postService.getPosts(),
+      this.postService.getFollowingPosts(),
+      this.accountService.getLoggedInUser()
     ]).subscribe({
-      next: (responses: ApiResponse<Post[]>[]) =>
+      next: (responses: ApiResponse<any>[]) =>
       {
         this.posts = responses[0].data;
         this.followingPosts = responses[1].data;
+        this.user = responses[2].data;
         this.busy = false;
       },
       error: (error: any) => 

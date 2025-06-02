@@ -57,7 +57,7 @@
                 <div class="uk-grid-match uk-child-width-1-1 uk-child-width-1-2@m" uk-grid
                     uk-sortable="handle: .uk-card">
                     @for (post of posts; track post.id) {
-                    <app-post-card [post]="post"
+                    <app-post-card [post]="post" [user]="loggedInUser"
                         (selectedPost)="onSelectedPost($event)"></app-post-card>
                     }
                 </div>
@@ -67,7 +67,7 @@
                 <div class="uk-grid-match uk-child-width-1-1 uk-child-width-1-2@m" uk-grid
                     uk-sortable="handle: .uk-card">
                     @for (post of likedPosts; track post.id) {
-                    <app-post-card [post]="post" [isLiked]="true"
+                    <app-post-card [post]="post" [user]="loggedInUser"
                         (selectedPost)="onSelectedPost($event)"></app-post-card>
                     }
                 </div>

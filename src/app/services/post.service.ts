@@ -43,7 +43,15 @@ export class PostService {
         return this.http.get<ApiResponse<Post[]>>(`${this.apiUrl}/following`, { headers: this.composeHeaders() });
     }
 
+    likePost(id: number) {
+        return this.http.post<ApiResponse<Post>>(`${this.apiUrl}/like/${id}`, null, { headers: this.composeHeaders() })
+    }
+
     getLikedPosts() {
         return this.http.get<ApiResponse<Post[]>>(`${this.apiUrl}/liked`, { headers: this.composeHeaders() });
+    }
+
+    unlikePost(id: number) {
+        return this.http.delete<ApiResponse<Post>>(`${this.apiUrl}/unlike/${id}`, { headers: this.composeHeaders() })
     }
 }

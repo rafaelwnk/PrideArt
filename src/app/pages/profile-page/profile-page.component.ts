@@ -22,6 +22,7 @@ export class ProfilePageComponent {
   public isLoggedInUser = false;
   public isFollowing = false;
   public paramsUsername!: string;
+  public loggedInUser!: User;
   public profileUser!: User;
   public editProfileUser!: User;
   public posts!: Post[];
@@ -48,6 +49,7 @@ export class ProfilePageComponent {
       this.accountService.getLoggedInUser().subscribe({
         next: (data: ApiResponse<User>) => {
           this.isLoggedInUser = (data.data.username === this.paramsUsername);
+          this.loggedInUser = data.data;
 
           if (this.isLoggedInUser) {
             this.profileUser = data.data;
