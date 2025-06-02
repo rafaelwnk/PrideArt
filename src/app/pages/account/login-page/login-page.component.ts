@@ -32,7 +32,25 @@ export class LoginPageComponent {
     private service: AccountService,
     private router: Router,
     private toastr: ToastrService
-  ) {}
+  ) { }
+
+  ngOnInit() {
+    if (Security.hasToken()) {
+      this.busy = true;
+      this.service.refreshToken().subscribe({
+        next: (data: ApiResponse<string>) => {
+          Security.setToken(data.data);
+          this.busy = false;
+          this.router.navigate(['/']);
+        },
+        error: (error: any) => {
+          console.log(error.error);
+          this.toastr.error(error.error.errors);
+          this.busy = false;
+        }
+      })
+    }
+  }
 
   submit() {
     this.busy = true;
