@@ -13,7 +13,7 @@
                     }
                 </h1>
                 <p class="uk-article-meta">Feito por: <a [routerLink]="['/profile', post?.user?.username]">{{
-                        post?.user?.username }}</a> em<time> {{ post?.createdAt
+                        post?.user?.username }}</a> em<time> {{ post?.createdAt | date: 'dd/MM/yyyy \'às\' HH:mm'
                         }}</time></p>
                 <p class="uk-text-secondary">{{ post?.description }}</p>
             </div>
@@ -22,5 +22,5 @@
 </div>
 
 @if(post) {
-    <app-edit-post-modal [post]="post"></app-edit-post-modal>
+<app-edit-post-modal [post]="post"></app-edit-post-modal>
 }

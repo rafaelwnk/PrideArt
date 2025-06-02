@@ -21,7 +21,7 @@ export class PostCardComponent {
   constructor(private service: PostService) { }
 
   ngOnInit() {
-      this.isLiked = this.post.usersLiked.some(x => x.username === this.loggedInUser.username);
+    this.isLiked = this.post.usersLiked.some(x => x.username === this.loggedInUser.username);
   }
 
   selectPost(post: Post) {
