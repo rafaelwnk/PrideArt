@@ -5,11 +5,22 @@
             <div class="uk-background-cover" [style.background-image]="'url(' + post?.image + ')'" uk-height-viewport>
             </div>
             <div class="uk-padding-large">
-                <h1 class="uk-text-primary">{{ post?.title }}</h1>
-                <p class="uk-article-meta">Feito por: <a [routerLink]="['/profile', post?.user?.username]" >{{ post?.user?.username }}</a> em<time> {{ post?.createdAt
+                <h1 class="uk-text-primary">{{ post?.title }}
+                    @if(isLoggedInUser) {
+                    <a href="#edit-post-modal" uk-toggle class="uk-button uk-button-link uk-margin-xsmall-left"
+                        type="button"><span class="uk-icon" uk-icon="icon: pencil; ratio: 1.5"></span>
+                    </a>
+                    }
+                </h1>
+                <p class="uk-article-meta">Feito por: <a [routerLink]="['/profile', post?.user?.username]">{{
+                        post?.user?.username }}</a> em<time> {{ post?.createdAt
                         }}</time></p>
                 <p class="uk-text-secondary">{{ post?.description }}</p>
             </div>
         </div>
     </div>
 </div>
+
+@if(post) {
+    <app-edit-post-modal [post]="post"></app-edit-post-modal>
+}

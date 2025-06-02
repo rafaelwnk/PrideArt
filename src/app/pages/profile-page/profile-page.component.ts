@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { PostCardComponent } from "../../components/post/post-card/post-card.component";
 import { EditProfileModalComponent } from "../../components/profile/edit-profile-modal/edit-profile-modal.component";
-import { firstValueFrom, forkJoin, map, Observable, tap } from 'rxjs';
+import { forkJoin } from 'rxjs';
 import { Post } from '../../models/post.model';
 import { PostService } from '../../services/post.service';
 import { LoadingComponent } from "../../components/shared/loading/loading.component";
@@ -90,7 +90,7 @@ export class ProfilePageComponent {
       this.postService.getAllPostsByUsername(this.paramsUsername),
       this.accountService.getFollowingUsers()
     ]).subscribe({
-      next: ([userResponse ,postResponse, followingUsersResponse]: [ApiResponse<User> ,ApiResponse<Post[]>, ApiResponse<User[]>]) => {
+      next: ([userResponse, postResponse, followingUsersResponse]: [ApiResponse<User>, ApiResponse<Post[]>, ApiResponse<User[]>]) => {
         this.profileUser = userResponse.data;
         this.posts = postResponse.data;
         const users = followingUsersResponse.data;

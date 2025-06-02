@@ -23,6 +23,10 @@ export class PostService {
         return this.http.post<ApiResponse<any>>(this.apiUrl, data, { headers: this.composeHeaders() })
     }
 
+    editPost(data: NewPost, id: number) {
+        return this.http.put<ApiResponse<any>>(`${this.apiUrl}/${id}`, data, { headers: this.composeHeaders() })
+    }
+
     getPosts() {
         return this.http.get<ApiResponse<Post[]>>(`${this.apiUrl}/explore`, { headers: this.composeHeaders() });
     }

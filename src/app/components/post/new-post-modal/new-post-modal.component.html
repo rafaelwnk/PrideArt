@@ -1,7 +1,4 @@
-@if(busy) {
-    <app-loading></app-loading>
-} @else {
-<div id="post-modal" class="uk-flex-top" uk-modal>
+<div id="new-post-modal" class="uk-flex-top" uk-modal>
     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-border-rounded">
         <button class="uk-modal-close-default" type="button" uk-close></button>
         <div class="uk-modal-header">
@@ -9,10 +6,10 @@
         </div>
         <div class="uk-modal-body">
             <form [formGroup]="form">
-                <input class="uk-input uk-form-large uk-text-muted" formControlName="title" type="text"
+                <input class="uk-input uk-form-large uk-text-muted uk-border-rounded" formControlName="title" type="text"
                     placeholder="Título"
                     [ngClass]="{'uk-form-danger': (!form.controls['title'].valid && !form.controls['title'].pristine) }">
-                <div class="js-upload uk-placeholder uk-text-center">
+                <div class="js-upload uk-placeholder uk-text-center uk-border-rounded">
                     @if(postImage) {
                     <div class="uk-inline uk-visible-toggle uk-transition-toggle" tabindex="-1">
                         <img class="uk-width-1-1 uk-height-1-1 uk-object-cover" [src]="postImage" alt="Post image">
@@ -36,7 +33,7 @@
                     }
                 </div>
                 <div class="uk-margin">
-                    <textarea class="uk-textarea uk-text-muted" rows="5" formControlName="description"
+                    <textarea class="uk-textarea uk-text-muted uk-border-rounded" rows="5" formControlName="description"
                         placeholder="Descrição" aria-label="Textarea"
                         [ngClass]="{'uk-form-danger': (!form.controls['description'].valid && !form.controls['description'].pristine) }"></textarea>
                 </div>
@@ -44,9 +41,8 @@
         </div>
         <div class="uk-modal-footer uk-text-right">
             <a class="uk-button uk-button-link uk-modal-close uk-margin-small-right" type="button">Cancelar</a>
-            <button class="uk-button uk-button-primary uk-border-rounded" type="button"
+            <button class="uk-button uk-button-primary uk-border-rounded uk-modal-close" type="button"
                 (click)="submit()">Postar</button>
         </div>
     </div>
 </div>
-}

@@ -57,7 +57,7 @@
                 <div class="uk-grid-match uk-child-width-1-1 uk-child-width-1-2@m" uk-grid
                     uk-sortable="handle: .uk-card">
                     @for (post of posts; track post.id) {
-                    <app-post-card [post]="post" [isLoggedInUser]="isLoggedInUser"
+                    <app-post-card [post]="post"
                         (selectedPost)="onSelectedPost($event)"></app-post-card>
                     }
                 </div>
@@ -81,4 +81,9 @@
 @if(editProfileUser) {
     <app-edit-profile-modal [user]="editProfileUser"></app-edit-profile-modal>
 }
-<app-post-description-modal [post]="selectedPost"></app-post-description-modal>
+<app-post-description-modal [post]="selectedPost" [isLoggedInUser]="isLoggedInUser"></app-post-description-modal>
+
+
+
+
+

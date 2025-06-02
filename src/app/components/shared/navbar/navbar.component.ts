@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PostModalComponent } from "../../post/post-modal/post-modal.component";
+import { NewPostModalComponent } from "../../post/new-post-modal/new-post-modal.component";
 import { Router, RouterModule } from '@angular/router';
 import { Security } from '../../../utils/security.utils';
 import { AccountService } from '../../../services/account.service';
@@ -8,7 +8,7 @@ import { ApiResponse } from '../../../models/api-response.model';
 
 @Component({
   selector: 'app-navbar',
-  imports: [PostModalComponent, RouterModule],
+  imports: [NewPostModalComponent, RouterModule],
   templateUrl: './navbar.component.html'
 })
 export class NavbarComponent {
