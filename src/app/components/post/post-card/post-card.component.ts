@@ -3,7 +3,6 @@ import { Post } from '../../../models/post.model';
 import { RouterModule } from '@angular/router';
 import { User } from '../../../models/user.model';
 import { PostService } from '../../../services/post.service';
-import { AccountService } from '../../../services/account.service';
 import { ApiResponse } from '../../../models/api-response.model';
 
 @Component({
@@ -14,15 +13,15 @@ import { ApiResponse } from '../../../models/api-response.model';
 })
 export class PostCardComponent {
   @Input() post!: Post;
-  @Input() user!: User;
+  @Input() loggedInUser!: User;
   @Input() isLiked: boolean = false;
   @Output() selectedPost = new EventEmitter<Post>();
   @Output() isEditing = new EventEmitter<boolean>();
 
-  constructor(private postService: PostService) { }
+  constructor(private service: PostService) { }
 
   ngOnInit() {
-      this.isLiked = this.post.usersLiked.some(x => x.username === this.user.username);
+      this.isLiked = this.post.usersLiked.some(x => x.username === this.loggedInUser.username);
   }
 
   selectPost(post: Post) {
@@ -31,7 +30,7 @@ export class PostCardComponent {
 
   toggleLike() {
     if (!this.isLiked) {
-      this.postService.likePost(this.post.id).subscribe({
+      this.service.likePost(this.post.id).subscribe({
         next: (data: ApiResponse<Post>) => {
           this.isLiked = !this.isLiked;
         },
@@ -40,7 +39,7 @@ export class PostCardComponent {
         }
       })
     } else {
-      this.postService.unlikePost(this.post.id).subscribe({
+      this.service.unlikePost(this.post.id).subscribe({
         next: (data: ApiResponse<Post>) => {
           this.isLiked = !this.isLiked;
         },

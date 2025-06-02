@@ -17,7 +17,7 @@
             </div>
             <div uk-sortable="handle: .uk-card">
                 @for (user of followingUsers; track user.id ) {
-                <app-artists-card [user]="user" [isFollowing]="true"></app-artists-card>
+                <app-artists-card [user]="user"></app-artists-card>
                 }
             </div>
         </div>

@@ -18,7 +18,7 @@ import { User } from '../../models/user.model';
 })
 export class ExplorePageComponent {
   public posts!: Post[];
-  public user!: User;
+  public loggedInUser!: User;
   public followingPosts!: Post[];
   public selectedPost!: Post;
   public busy = false;
@@ -41,7 +41,7 @@ export class ExplorePageComponent {
       {
         this.posts = responses[0].data;
         this.followingPosts = responses[1].data;
-        this.user = responses[2].data;
+        this.loggedInUser = responses[2].data;
         this.busy = false;
       },
       error: (error: any) => 

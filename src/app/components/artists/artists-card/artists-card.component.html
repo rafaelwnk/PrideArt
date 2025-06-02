@@ -1,12 +1,5 @@
 @if(user) {
 <div class="uk-card uk-card-primary uk-margin-bottom uk-border-rounded card-hover" [class]="user.identity">
-    @if(isFollowing) {
-        <button (click)="toggleFollow()" class="uk-position-small uk-position-top-right uk-button uk-button-default uk-border-pill follow"
-        type="button">Parar de seguir</button>
-    } @else {
-        <button (click)="toggleFollow()" class="uk-position-small uk-position-top-right uk-button uk-button-default uk-border-pill follow"
-        type="button">Seguir</button>
-    }
     <div class="uk-card-header">
         <div class="uk-grid-small uk-flex-middle" uk-grid>
             <div class="uk-width-auto">

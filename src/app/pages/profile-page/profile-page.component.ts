@@ -112,6 +112,25 @@ export class ProfilePageComponent {
   }
 
   toggleFollow() {
-    this.isFollowing = !this.isFollowing;
+    if(!this.isFollowing) {
+      this.accountService.follow(this.profileUser.username).subscribe({
+        next: (data: ApiResponse<User>) => {
+          this.isFollowing = !this.isFollowing;
+        },
+        error: (error: any) => {
+          console.log(error.error.errors);
+        }
+      })
+    } else {
+      this.accountService.unfollow(this.profileUser.username).subscribe({
+        next: (data: ApiResponse<User>) => {
+          this.isFollowing = !this.isFollowing;
+        },
+        error: (error: any) => {
+          console.log(error.error.errors);
+        } 
+      })
+    }
+    
   }
 }

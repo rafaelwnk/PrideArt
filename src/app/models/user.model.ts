@@ -9,6 +9,7 @@ export interface User {
     bio?: string,
     image?: string,
     posts?: Post[];
+    following: User[];
 }
 
 export interface UserLogin {

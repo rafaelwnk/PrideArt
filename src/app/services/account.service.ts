@@ -58,6 +58,14 @@ export class AccountService implements CanActivate {
         return this.http.get<ApiResponse<User>>(`${this.apiUrl}/${username}`, { headers: this.composeHeaders() });
     }
 
+    follow(username: string) {
+        return this.http.post<ApiResponse<User>>(`${this.apiUrl}/${username}/follow`, null, { headers: this.composeHeaders() });
+    }
+
+    unfollow(username: string) {
+        return this.http.delete<ApiResponse<User>>(`${this.apiUrl}/${username}/unfollow`, { headers: this.composeHeaders() });
+    }
+
     getFollowingUsers() {
         return this.http.get<ApiResponse<User[]>>(`${this.apiUrl}/following`, { headers: this.composeHeaders() });
     }
