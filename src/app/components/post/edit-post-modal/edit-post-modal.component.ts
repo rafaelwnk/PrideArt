@@ -71,12 +71,24 @@ export class EditPostModalComponent {
     })
   }
 
+  deletePost() {
+    this.service.deletePost(this.post.id).subscribe({
+      next: (data: ApiResponse<any>) => {
+        this.toastr.success(data.data.message)
+      },
+      error: (error: any) => {
+        console.log(error);
+        this.toastr.error(error.error.errors)
+      }
+    })
+  }
+
   reset() {
     this.postImage = this.post.image;
-      this.form.patchValue({
-        title: this.post.title,
-        image: this.post.image,
-        description: this.post.description
-      })
-    }  
+    this.form.patchValue({
+      title: this.post.title,
+      image: this.post.image,
+      description: this.post.description
+    })
+  }
 }

@@ -27,6 +27,10 @@ export class PostService {
         return this.http.put<ApiResponse<any>>(`${this.apiUrl}/${id}`, data, { headers: this.composeHeaders() })
     }
 
+    deletePost(id: number) {
+        return this.http.delete<ApiResponse<any>>(`${this.apiUrl}/${id}`, { headers: this.composeHeaders() })
+    }
+
     getPosts() {
         return this.http.get<ApiResponse<Post[]>>(`${this.apiUrl}/explore`, { headers: this.composeHeaders() });
     }
