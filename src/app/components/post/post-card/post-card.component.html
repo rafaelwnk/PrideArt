@@ -20,7 +20,7 @@
                     <button class="uk-button uk-button-link" (click)="toggleLike()">
                         <span [class.like]="isLiked" uk-icon="icon: heart; ratio: 2"></span>
                     </button>
-                    {{ post.usersLiked.length }}
+                    {{ countLike }}
                 </div>
                 <a href="#post-description-modal" uk-toggle
                     class="uk-button uk-button-text uk-text-meta uk-margin-remove-top uk-position-small uk-position-bottom-right"

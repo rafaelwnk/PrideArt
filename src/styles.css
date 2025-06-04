@@ -9,47 +9,47 @@
 }
 
 .lesbian {
-    background: linear-gradient(to right, #d52d00, #d362a4);
+    background: linear-gradient(to right, #d52d00, #ff9a56, #d362a4, #a30262);
 }
 
 .gay {
-    background: linear-gradient(to right, #39d4c8, #7679e6);
+    background: linear-gradient(to right, #20a69b, #39d4c8, #75ead5, #9ac7ff, #7679e6, #6139d1);
 }
 
 .bisexual {
-   background: linear-gradient(to right, #ff0080, #7748d6); 
+    background: linear-gradient(to right, #d60270, #9b4f96, #0038a8);
 }
 
 .transgender {
-    background: linear-gradient(to right, #5bcefa, #f5a9b8);
+    background: linear-gradient(to right, #5bcefa, #f5a9b8, #f5a9b8, #5bcefa);
 }
 
 .queer {
-    background: linear-gradient(to right, #c175da, #74a464);
+    background: linear-gradient(to right, #c175da, #3f8e21);
 }
 
 .intersex {
-    background: linear-gradient(to right, #f9c266, #910dce);
+    background: linear-gradient(to right, #ffd800, #7902aa, #ffd800);
 }
 
 .asexual {
-    background: linear-gradient(to right, #a3a3a3, #820080);
+    background: linear-gradient(to right, #000000, #a3a3a3, #800080);
 }
 
 .pansexual {
-    background: linear-gradient(to right, #ed2e8c, #4cace2);
+    background: linear-gradient(to right, #ff218c, #ed2e8c, #ffd800 45%, #ffd800 55%,#4cace2, #21b1ff);
 }
 
 .demisexual {
-    background: linear-gradient(to right, #000000, #6e0070);
+    background: linear-gradient(to right, #000000, #6e0070, #646464);
 }
 
 .non-binary {
-    background: linear-gradient(to right, #fdf433, #9a5acf, #000000);
+    background: linear-gradient(to right, #fef32f, #9b58d0, #000000);
 }
 
 .travesti {
-    background: linear-gradient(to right, #d887dc, #ffc6de);
+    background: linear-gradient(to right, #d887dc, #ffc6de, #ffc6de, #d887dc);
 }
 
 .drag {
@@ -61,7 +61,7 @@
 }
 
 .custom-switcher li.uk-active a {
-  color: #9d57d3 !important; 
+    color: #9d57d3 !important;
 }
 
 .like svg path {

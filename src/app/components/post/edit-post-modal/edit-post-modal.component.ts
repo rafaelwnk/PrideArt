@@ -1,10 +1,12 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, DestroyRef, inject, Input, SimpleChanges } from '@angular/core';
 import { Post } from '../../../models/post.model';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PostService } from '../../../services/post.service';
 import { ToastrService } from 'ngx-toastr';
 import { ApiResponse } from '../../../models/api-response.model';
 import { CommonModule } from '@angular/common';
+
+declare var UIkit: any;
 
 @Component({
   selector: 'app-edit-post-modal',
@@ -31,7 +33,11 @@ export class EditPostModalComponent {
   constructor(
     private service: PostService,
     private toastr: ToastrService
-  ) { }
+  ) {
+    inject(DestroyRef).onDestroy(() => {
+      this.destroyModal();
+    });
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['post'] && this.post) {
@@ -90,5 +96,13 @@ export class EditPostModalComponent {
       image: this.post.image,
       description: this.post.description
     })
+  }
+
+  destroyModal() {
+    const modal = document.getElementById('edit-post-modal');
+    if (modal) {
+      UIkit.modal(modal).hide();
+      modal.remove();
+    }
   }
 }

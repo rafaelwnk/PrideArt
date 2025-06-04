@@ -84,7 +84,6 @@ export class EditProfileModalComponent {
         this.toastr.error(error.error.errors)
       }
     })
-    this.reset();
     window.location.reload();
   }
 
@@ -102,7 +101,6 @@ export class EditProfileModalComponent {
         this.toastr.error(error.error.errors)
       }
     })
-    this.reset();
     this.router.navigate(['/login']);
   }
   

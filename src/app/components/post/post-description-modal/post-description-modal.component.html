@@ -6,7 +6,7 @@
             </div>
             <div class="uk-padding-large">
                 <h1 class="uk-text-primary">{{ post?.title }}
-                    @if(isLoggedInUser) {
+                    @if(isLoggedInUser && loggedInUser.username === post?.user?.username) {
                     <a href="#edit-post-modal" uk-toggle class="uk-button uk-button-link uk-margin-xsmall-left"
                         type="button"><span class="uk-icon" uk-icon="icon: pencil; ratio: 1.5"></span>
                     </a>
