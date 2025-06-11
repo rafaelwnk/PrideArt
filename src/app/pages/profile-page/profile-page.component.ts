@@ -24,6 +24,7 @@ export class ProfilePageComponent {
   public paramsUsername!: string;
   public loggedInUser!: User;
   public profileUser!: User;
+  public editedUser!: User;
   public editProfileUser!: User;
   public posts!: Post[];
   public likedPosts!: Post[];
@@ -109,6 +110,13 @@ export class ProfilePageComponent {
 
   onSelectedPost(post: Post) {
     this.selectedPost = post;
+  }
+
+  onEditedUser(editedUser: User) {
+    if(this.isLoggedInUser) {
+      this.profileUser = editedUser;
+      this.loadLoggedInUserData();
+    }
   }
 
   toggleFollow() {

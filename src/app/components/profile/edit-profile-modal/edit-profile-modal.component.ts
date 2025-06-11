@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { User } from '../../../models/user.model';
 import { AccountService } from '../../../services/account.service';
@@ -16,6 +16,7 @@ import { Security } from '../../../utils/security.utils';
 })
 export class EditProfileModalComponent {
   @Input() user!: User;
+  @Output() userEdited = new EventEmitter<User>();
   public editUserImage!: any;
   public busy = false;
   public form: FormGroup = new FormGroup({
@@ -76,6 +77,7 @@ export class EditProfileModalComponent {
     this.service.editProfile(this.form.value).subscribe({
       next: (data: ApiResponse<any>) => {
         this.busy = false;
+        this.userEdited.emit(data.data.user);
         this.toastr.success(data.data.message)
       },
       error: (error: any) => {
@@ -84,7 +86,6 @@ export class EditProfileModalComponent {
         this.toastr.error(error.error.errors)
       }
     })
-    window.location.reload();
   }
 
   deleteProfile() {

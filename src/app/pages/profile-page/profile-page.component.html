@@ -79,7 +79,7 @@
 </div>
 
 @if(editProfileUser) {
-    <app-edit-profile-modal [user]="editProfileUser"></app-edit-profile-modal>
+    <app-edit-profile-modal [user]="editProfileUser" (userEdited)="onEditedUser($event)"></app-edit-profile-modal>
 }
 <app-post-description-modal [post]="selectedPost" [isLoggedInUser]="isLoggedInUser" [loggedInUser]="loggedInUser"></app-post-description-modal>
 
